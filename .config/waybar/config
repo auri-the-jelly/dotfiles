@@ -5,7 +5,7 @@
     // "width": 1240, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
+    "modules-left": ["hyprland/workspaces", "custom/media"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "battery#bat2", "tray", "clock"],
     // Modules configuration
@@ -27,7 +27,12 @@
      },
     "hyprland/window": {
         "format": "{}",
-        "separate-outputs": true
+        "separate-outputs": true,
+	"rewrite": {
+		"(.*) — Mozilla Firefox": "󰈹 $1",
+		"(.*) - zsh": "> [$1]",
+		"(.*) - Discord": "󰙯 $1"
+	},
     },
     "keyboard-state": {
         "numlock": true,
@@ -117,7 +122,7 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰢞",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
