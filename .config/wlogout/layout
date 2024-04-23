@@ -1,0 +1,42 @@
+{
+    "label" : "lock",
+    "action" : "swaylock \
+        --screenshots \
+        --indicator-image=/home/auri/Pictures/SMBGSymbol.png \
+        --indicator-radius 500 \
+        --indicator-thickness 10 \
+        --effect-blur 7x5 \
+        --effect-vignette 0.5:0.5 \
+        --indicator \
+        --line-color 00ffff00 \
+        --inside-color 00000000 \
+        --separator-color 00000000 \
+        --ring-color 404850 \
+        --key-hl-color 0f72bc",
+    "text" : "Lock",
+    "keybind" : "l",
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
