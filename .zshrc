@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cargo/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -99,5 +99,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls="eza"
+alias pkhex="WINEPREFIX=~/Games/Prefixes/PKHex/ DOTNET_ROOT=\"C:\Program Files\dotnet\" DOTNET_BUNDLE_EXTRACT_BASE_DIR=\"Z:\home\auri\Games\PKHex\\dotnet_bundle_extract\" ~/.local/share/lutris/runners/wine/wine-ge-8-22-x86_64/bin/wine ~/Games/PKHex/PKHeX.exe"
+alias mcserver="cd ~/Games/MCServer/Server/ && ./start.sh"
+alias ytmp3="yt-dlp -x --audio-format mp3 "
+
+export MPD_HOST="192.168.1.47"
+export MPD_PORT="6600"
 
 eval $(thefuck --alias)
+eval "$(zoxide init --cmd cd zsh)"
+
+export PATH=$PATH:/home/auri/.spicetify

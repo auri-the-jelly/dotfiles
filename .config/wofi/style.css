@@ -1,5 +1,42 @@
+* {
+    opacity: 0.9
+}
+
 window {
     font-size: 20px;
     font-family: "FiraMono Nerd Font";
+    padding: 5px;
     margin: 5px;
+    border: 2px solid #50FA7B;
+    border-radius: 20px;
+}
+
+#input {
+    margin: 5px;
+    border: 2px solid #F8F8F2;
+    border-radius: 45px;
+    background-color: #F8F8F2;
+    color: #282A36;
+} 
+
+
+#text {
+    margin: 5px;
+} 
+
+#outer-box {
+    margin: 10px;
+} 
+
+#inner-box {
+    width: 300px;
+}
+
+#entry {
+    width: 300px;
+}
+
+#entry:selected {
+    border-radius: 45px;
+    padding: 3px;
 } 

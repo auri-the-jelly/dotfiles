@@ -24,10 +24,10 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = (200,400)
+    width = (200,600)
 
     # The maximum height of a single notification, excluding the frame.
-    height = (30,400)
+    height = 400
 
     # Position the notification in the top right corner
     origin = top-right
@@ -36,7 +36,7 @@
     offset = 10x10
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 2
+    scale = 0
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 0
@@ -95,7 +95,7 @@
     frame_width = 1
 
     # Defines color of the frame around the notification window.
-    frame_color = "#ebbcba"
+    frame_color = "#50FA7B"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
@@ -128,7 +128,7 @@
 
     ### Text ###
 
-    font = FiraMono 8
+    font = FiraMono 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -318,8 +318,8 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#26233a"
-    foreground = "#888888"
+    background = "#282A36"
+    foreground = "#F8F8F2"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon

@@ -1,3 +1,5 @@
 width=600
 height=300
 filter_rate=100
+hide_scroll=true
+no_actions=true
