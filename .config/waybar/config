@@ -1,13 +1,16 @@
 {
     "layer": "top", // Waybar at top layer
     // "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 18, // Waybar height (to be removed for auto height)
+    "height": 40, // Waybar height (to be removed for auto height)
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
     // "width": 1900, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/window", "mpd"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["tray", "pulseaudio", "network", "backlight", "battery", "clock"],
+    "modules-left": ["custom/padl", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["mpd", "pulseaudio", "backlight", "battery", "tray"],
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": false,
@@ -15,12 +18,12 @@
          "warp-on-scroll": false,
          "format": "{icon}",
          "format-icons": {
-             "1": "󰈹 web",
-             "2": "󰙯 disc",
-             "3": " term",
-             "4": " music",
-             "5": "󰊴 game",
-             "6": "󰕼 media",
+             "1": "󰈹",
+             "2": "󰙯",
+             "3": "",
+             "4": "",
+             "5": "󰊴",
+             "6": "󰕼",
              "urgent": "",
              "focused": "",
              "default": ""
@@ -29,12 +32,12 @@
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true,
-	"rewrite": {
-		"(.*) — Mozilla Firefox": "󰈹 $1",
-		"(.*) - zsh": "> [$1]",
-		"(.*) - Discord": "󰙯 $1"
-	},
-        "max-length": 40,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "󰈹  $1",
+            "(.*) - zsh": ">  [$1]",
+            "(.*) - Discord": "󰙯  $1",
+            "(.*) - VSCodium": "  $1"
+        }
     },
     "keyboard-state": {
         "numlock": true,
@@ -56,7 +59,7 @@
         "tooltip-format": "{app}: {title}"
     },
     "mpd": {
-        "format": "{stateIcon} {artist} - {title}",
+        "format": "{stateIcon} {artist} \n{randomIcon}{title}",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
@@ -79,7 +82,11 @@
             "playing": ""
         },
         "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "mpc toggle",
+        "on-click-middle": "mpc prev",
+        "on-click-right": "mpc next",
+        "min-length": 10,
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -89,14 +96,14 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10,
         "layer": "top"
     },
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%A, %B %d, %Y \n             %R}"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -180,5 +187,15 @@
         "on-click": "dunstctl set-paused toggle",
         "restart-interval": 1,
     },
+   "custom/padc": { 
+        "format": "                                  ",
+        "interval" : "once",
+        "tooltip": false
+   },
+   "custom/padl": {
+       "format": "   ",
+       "interval": "once",
+       "tooltip": false
+   },
 }
 

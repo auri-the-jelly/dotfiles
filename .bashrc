@@ -30,3 +30,4 @@ alias pkhex="WINEPREFIX=~/Games/Prefixes/PKHex/ DOTNET_ROOT=\"C:\Program Files\d
 alias mcserver="cd ~/Games/MCServer/Server/ && ./start.sh"
 alias ytmp3="yt-dlp -x --audio-format mp3 "
 eval "$(thefuck --alias)"
+. "$HOME/.cargo/env"

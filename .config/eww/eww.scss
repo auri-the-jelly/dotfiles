@@ -1,0 +1,30 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: Torus, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+}
+
+window {
+    border-radius: 15px;
+    background-color: #24273a;
+    color: #cad3f5;
+}
+
+.music {
+    background-color: #24273a;
+    color: #cad3f5;
+}
+
+.container {
+    padding: 12px;
+    border-radius: 15px;
+}
+
+.power {
+    padding: 20px 45px;
+    border-radius: 15px;
+}
+
+.music-widget {
+    border-radius: 15px;
+}

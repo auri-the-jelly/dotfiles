@@ -1,0 +1,66 @@
+(defwindow sidebar
+          :monitor 0
+          :geometry (geometry :x "0%"
+                              :y "50%"
+                              :width "33%"
+                              :height "20%"
+                              :anchor "top left")
+          :stacking "fg"
+          :reserve (struts :distance "40px" :side "top")
+          :windowtype "dock"
+          :wm-ignore false
+          :exclusive true
+          :namespace "bar"
+  (music))
+
+(defwidget music []
+  :style "border-radius: 15px;"
+  (box :orientation "h"
+      :halign "start"
+      :valign "start"
+      :style "padding: 20px; border-radius: 15px;"
+    (image :class "album_art" 
+        :path cover
+        :image-width "64px"
+        :image-height "64px"
+        :vexpand "false"
+        :hexpand "false")
+    (box :orientation "v" :spacing 0 :halign "start" :valign "start" :space-evenly "true" :hexpand "false" :vexpand "true" 
+          (label :text song
+                  :yalign 0.5
+                  :spacing 50
+                  :geometry (geometry :y "50px")
+                  :style "font-size:  30px; margin: 10px;")
+          (label :text artist
+                  :yalign 0
+                  :xalign 0
+                  :style "font-size:  25px; margin: 10px;")
+          (box :class "music_bar" :orientation "h" :halign "center" :vexpand "false" :hexpand "false" 
+              (label :text ctime
+                  :yalign 0
+                  :xalign 0
+                  :style "font-size:  20px;")
+              (progress :value time :orientation "h" :xalign 0.5)
+              (label :text ttime
+                  :yalign 0
+                  :xalign 0
+                  :style "font-size:  20px;")))))
+    
+
+(defpoll artist :interval "1s"
+  `scripts/music_info --artist`)
+
+(defpoll song :interval "1s"
+  `scripts/music_info --song`)
+
+(defpoll cover :interval "1s"
+  `scripts/music_info --cover`)
+
+(defpoll time :interval "1s"
+  `scripts/music_info --time`)
+
+(defpoll ctime :interval "1s"
+  `scripts/music_info --ctime`)
+
+(defpoll ttime :interval "5s"
+  `scripts/music_info --ttime`)

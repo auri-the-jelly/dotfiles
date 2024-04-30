@@ -1,0 +1,272 @@
+(defwindow music
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "23%"
+            :width "32%"
+            :height "26%"
+            :anchor "bottom right"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :class "container"
+            :height "100%"
+            :width "100%"
+            :halign "center"
+            :valign "center"
+            :hexpand true
+            :vexpand true
+            :spacing 5
+            :orientation "horizontal"
+        (image 
+                :path ART
+                :image-height "256"
+                :image-width "256"
+        )
+        (box
+                :height "100"
+                :width "272"
+                :halign "center"
+                :valign "center"
+                :hexpand true
+                :vexpand true
+                :spacing 5
+                :orientation "vertical"
+            (label 
+                :text TITLE
+                :xalign 0.5
+                :style "font-size: 40px; color: #a6da95"
+            )
+            (label 
+                :text ARTIST
+                :xalign 0.5
+                :style "font-size: 30px; color: #8bd5ca"
+            )
+            (box
+                :orientation "horizontal"
+                :spacing 5
+                (button 
+                    :height "10" 
+                    :width "10"
+                    :onclick "scripts/music_info --prev"
+                "")
+                (button 
+                    :height "10" 
+                    :width "10"
+                    :onclick "scripts/music_info --toggle"
+                STATUS)
+                (button 
+                    :height "10" 
+                    :width "10"
+                    :onclick "scripts/music_info --next"
+                "")
+            )
+            (box
+                :orientation "horizontal"
+                :spacing 5
+                (button 
+                    :height "10" 
+                    :width "10"
+                    :onclick "scripts/music_info --prev"
+                "")
+                (button 
+                    :height "10" 
+                    :width "10"
+                    :onclick "scripts/music_info --toggle"
+                "󰕇")
+            )
+            (progress :value PTIME :style "margin-bottom: 5px;")
+        )
+    )
+)
+
+(defwindow resource
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "50%"
+            :width "32%"
+            :height "26%"
+            :anchor "bottom right"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box 
+            :class "container"
+            :halign "start"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 0
+            :orientation "vertical"
+        (box 
+                :halign "start" 
+                :valign "start"
+                :hexpand true
+                :vexpand true
+                :spacing 50
+                :orientation "horizontal"
+            (label 
+                :text ""
+                :style "font-size: 180px; padding-left: 10px; color: #91d7e3;"
+            )
+            (box
+                    :halign "start"
+                    :valign "start"
+                    :hexpand false
+                    :vexpand false
+                    :spacing 50
+                    :orientation "vertical"
+                (box
+                        :halign "start"
+                        :valign "start"
+                        :hexpand false
+                        :vexpand false
+                        :spacing 0
+                        :orientation "horizontal"
+                        (label 
+                            :text "/         ${round(EWW_DISK["/"]["used"]/1000000000, 1)}/${round(EWW_DISK["/"]["total"]/1000000000, 1)} GB"
+                            :style "font-size: 24px; padding-top: 60px;"
+                        )
+                )
+                (box
+                        :halign "start"
+                        :valign "start"
+                        :hexpand false
+                        :vexpand false
+                        :spacing 0
+                        :orientation "horizontal"
+                        (label 
+                            :text "/home ${round(EWW_DISK["/home"]["used"]/1000000000, 1)}/${round(EWW_DISK["/home"]["total"]/1000000000, 1)} GB"
+                            :style "font-size: 24px;"
+                        )
+                        
+                )
+            )
+        )
+    )
+)
+
+(defwindow next
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "2%"
+            :width "32%"
+            :height "20%"
+            :anchor "bottom right"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :class "container"
+            :height "100%"
+            :width "100%"
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 5
+            :orientation "Vertical"
+        (label 
+            :text "Next Up"
+            :xalign 0
+            :style "font-size: 30px")
+        (label 
+            :text NEXT_TITLE
+            :xalign 0
+            :style "font-size: 25px; color: #a5adcb")
+        (label 
+            :text NEXT_ARTIST
+            :xalign 0
+            :style "font-size: 25px; color: #a5adcb")
+        (label 
+            :text NEXT_ALBUM
+            :xalign 0
+            :style "font-size: 25px; color: #a5adcb")
+    )
+)
+
+(defwindow power
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "77%"
+            :width "32%"
+            :height "10%"
+            :anchor "bottom right"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :class "power"
+            :height "100%"
+            :width "100%"
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 80
+            :orientation "horizontal"
+        (label 
+            :text ""
+            :xalign 1
+            :yalign 0.5
+            :style "font-size: 80px; color: #ed8796;")
+        (label 
+            :text "󰍃"
+            :xalign 1
+            :yalign 0.5
+            :style "font-size: 80px; color: #8bd5ca")
+        (label 
+            :text "󰤄"
+            :xalign 1
+            :yalign 0.5
+            :style "font-size: 80px; color: #eed49f")
+        (label 
+            :text ""
+            :xalign 1
+            :yalign 0.5
+            :style "font-size: 80px; color: #8aadf4")
+    )
+)
+
+(defpoll ART :interval "1s"
+        `scripts/music_info --cover`
+)
+
+(defpoll TITLE :interval "1s"
+        `scripts/music_info --song`
+)
+
+(defpoll ARTIST :interval "1s"
+        `scripts/music_info --artist`
+)
+
+(defpoll NEXT_TITLE :interval "1s"
+        `scripts/music_info --nsong`
+)
+
+(defpoll NEXT_ARTIST :interval "1s"
+        `scripts/music_info --nartist`
+)
+
+(defpoll NEXT_ALBUM :interval "1s"
+        `scripts/music_info --nalbum`
+)
+
+(defpoll PTIME :interval "1s"
+        `scripts/music_info --time`
+)
+
+(defpoll STATUS :interval "1s"
+        `scripts/music_info --status`)
