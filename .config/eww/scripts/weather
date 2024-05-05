@@ -1,0 +1,14 @@
+
+get_temp () {
+    echo `curl -s 'wttr.in/?format=3' | awk '{print $4}' | tail -n 1 | sed 's/+//'`
+}
+
+get_icon () {
+    echo `curl -s 'wttr.in/?format=3' | awk '{print $3}' | tail -n 1`
+}
+
+if [[ "$1" == "--temp" ]]; then
+	get_temp
+elif [[ "$1" == "--icon" ]]; then
+	get_icon
+fi

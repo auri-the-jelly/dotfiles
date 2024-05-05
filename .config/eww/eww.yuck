@@ -83,7 +83,7 @@
     )
 )
 
-(defwindow resource
+(defwindow disk
         :monitor 0
         :geometry (geometry 
             :x "1%"
@@ -167,8 +167,6 @@
         :namespace "bar"
     (box
             :class "container"
-            :height "100%"
-            :width "100%"
             :halign "start"
             :valign "start"
             :hexpand false
@@ -217,56 +215,109 @@
             :vexpand false
             :spacing 80
             :orientation "horizontal"
-        (label 
-            :text ""
-            :xalign 1
-            :yalign 0.5
-            :style "font-size: 80px; color: #ed8796;")
-        (label 
-            :text "󰍃"
-            :xalign 1
-            :yalign 0.5
-            :style "font-size: 80px; color: #8bd5ca")
-        (label 
-            :text "󰤄"
-            :xalign 1
-            :yalign 0.5
-            :style "font-size: 80px; color: #eed49f")
-        (label 
-            :text ""
-            :xalign 1
-            :yalign 0.5
-            :style "font-size: 80px; color: #8aadf4")
+        (button
+                    :onclick "systemctl poweroff"
+                    :style "background-color: #24273a"
+                    :hexpand true
+            (label 
+                :text "⏻"
+                :xalign 1
+                :yalign 0.5
+                :style "font-size: 80px; color: #ed8796;")
+        )
+        (button
+                    :onclick "hyprctl dispatch exit"
+                    :style "background-color: #24273a"
+            (label 
+                :text "󰍃"
+                :xalign 1
+                :yalign 0.5
+                :style "font-size: 80px; color: #8bd5ca")
+        )
+        (button
+                    :onclick "swaylock \
+        			--screenshots \
+        			--indicator-image=/home/auri/Pictures/SMBGSymbol.png \
+        			--indicator-radius 500 \
+        			--indicator-thickness 10 \
+        			--effect-blur 7x5 \
+        			--effect-vignette 0.5:0.5 \
+        			--indicator \
+        			--line-color 00ffff00 \
+        			--inside-color 00000000 \
+        			--separator-color 00000000 \
+        			--ring-color 404850 \
+        			--key-hl-color 0f72bc \
+				--grace 5  & sleep 300 && hyprctl dispatch dpms off"
+                    :style "background-color: #24273a"
+            (label 
+                :text ""
+                :xalign 1
+                :yalign 0.5
+                :style "font-size: 80px; color: #eed49f")
+        )
+        (button
+                    :onclick "systemctl reboot"
+                    :style "background-color: #24273a"
+            (label 
+                :text ""
+                :xalign 1
+                :yalign 0.5
+                :style "font-size: 80px; color: #8aadf4")
+        )
     )
 )
 
-(defpoll ART :interval "1s"
-        `scripts/music_info --cover`
+(defwindow weather
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "50%"
+            :width "27%"
+            :height "20%"
+            :anchor "top left"
+        )
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :class "weather"
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 0
+            :orientation "horizontal"
+        (label :text TEMP_ICON :style "font-size: 100px;")
+        (label :text TEMPERATURE :style "font-size: 100px; color: #ed8796")
+    )
 )
 
-(defpoll TITLE :interval "1s"
-        `scripts/music_info --song`
-)
+(defpoll GPU_TEMP :interval "1s" `scripts/temp --gpu`)
 
-(defpoll ARTIST :interval "1s"
-        `scripts/music_info --artist`
-)
+(defpoll CPU_TEMP :interval "1s" `scripts/temp --cpu`)
 
-(defpoll NEXT_TITLE :interval "1s"
-        `scripts/music_info --nsong`
-)
+(defpoll TEMPERATURE :interval "1s" `scripts/weather --temp`)
 
-(defpoll NEXT_ARTIST :interval "1s"
-        `scripts/music_info --nartist`
-)
+(defpoll TEMP_ICON :interval "1s" `scripts/weather --icon`)
 
-(defpoll NEXT_ALBUM :interval "1s"
-        `scripts/music_info --nalbum`
-)
+(defpoll ART :interval "1s" `scripts/music_info --cover`)
 
-(defpoll PTIME :interval "1s"
-        `scripts/music_info --time`
-)
+(defpoll TITLE :interval "1s" `scripts/music_info --song`)
 
-(defpoll STATUS :interval "1s"
-        `scripts/music_info --status`)
+(defpoll ARTIST :interval "1s" `scripts/music_info --artist`)
+
+(defpoll NEXT_TITLE :interval "1s" `scripts/music_info --nsong`)
+
+(defpoll NEXT_ARTIST :interval "1s" `scripts/music_info --nartist`)
+
+(defpoll NEXT_ALBUM :interval "1s" `scripts/music_info --nalbum`)
+
+(defpoll PTIME :interval "1s" `scripts/music_info --time`)
+
+(defpoll STATUS :interval "1s" `scripts/music_info --status`)
+
+(defpoll COLOR_ONE :interval "1s" `scripts/get_colors 1`)
+
+(defpoll COLOR_TWO :interval "1s" `scripts/get_colors 2`)

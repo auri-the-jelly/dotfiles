@@ -21,7 +21,22 @@ window {
 }
 
 .power {
-    padding: 20px 45px;
+    padding: 20px 35px;
+    border-radius: 15px;
+}
+.weather {
+    padding-top: 20px;
+    border-radius: 15px;
+}
+
+.pfp {
+    background-image: url('/home/auri/Pictures/auri_pfp_centered.png'); border-radius: 128px;  background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+.resource {
+    padding: 15px;
     border-radius: 15px;
 }
 

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+get_cpu () {
+    echo `sensors | grep 'CPU' | awk '{print $2}' | sed 's/+//'`
+}
+
+get_gpu () {
+    echo `sensors | grep 'GPU' | awk '{print $2}' | sed 's/+//'`
+}
+
+if [[ "$1" == "--cpu" ]]; then
+	get_cpu
+elif [[ "$1" == "--gpu" ]]; then
+	get_cpu
+fi

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+COVER="/home/auri/.config/ncmpcpp/previews/preview.png"
+WAL="/home/auri/.cache/wal/colors"
+
+get_first_color () {
+    wal -i $COVER -n &> /dev/null
+    echo `cat $WAL | awk 'NR==3'`
+}
+
+get_second_color () {
+    wal -i $COVER -n &> /dev/null
+    echo `cat $WAL | awk 'NR==5'`
+}
+
+if [[ "$1" == "1" ]]; then
+	get_first_color
+elif [[ "$1" == "2" ]]; then
+	get_second_color
+fi
