@@ -6,22 +6,22 @@
 @import "userChrome-static.css";
 
 :root {
-  --dark-0: #1B1A29;
-  --dark-base: #1f1d2e;
-  --dark-1: #2C2942;
-  --dark-2: #35314E;
-  --dark-3: #454168;
-  --dark-4: #4E4974;
+  --dark-0: #181926;
+  --dark-base: #24273a;
+  --dark-1: #1e2030;
+  --dark-2: #363a4f;
+  --dark-3: #494d64;
+  --dark-4: #5b6078;
   --light-0: #D7DFEA;
   --light-base: #afc0d5;
   --light-1: #A1B5CE;
   --light-2: #94ABC7;
   --light-3: #87A0C0;
   --light-4: #7996B9;
-  --accent: #9ccfd8;
-  --yellow: #f6c177;
-  --green: #31748f;
-  --red: #eb6f92;
+  --accent: #8bd5ca;
+  --yellow: #eed49f;
+  --green: #a6da95;
+  --red: #ed8796;
   --extension-icon-mask: grayscale(85%) invert(25%) sepia(9%) saturate(2394%) hue-rotate(207deg) brightness(96%) contrast(91%);
 
   /* expanded width of the sidebar.
