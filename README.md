@@ -11,3 +11,4 @@ Thanks to [adi1090x](https://github.com/adi1090x/widgets) for the music_info scr
 <img src="Pictures/Assets/20240507_07h35m01s_grim.png">
 <img src="Pictures/Assets/20240507_07h35m39s_grim.png">
 <img src="Pictures/Assets/20240507_07h36m28s_grim.png">
+<img src="Pictures/Assets/20240507_08h06m48s_grim.png">
