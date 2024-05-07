@@ -70,12 +70,13 @@
                 (button 
                     :height "10" 
                     :width "10"
-                    :onclick "scripts/music_info --prev"
+                    :onclick "scripts/music_info --shuffle"
                 "")
                 (button 
                     :height "10" 
                     :width "10"
-                    :onclick "scripts/music_info --toggle"
+                    :onclick "scripts/music_info --single"
+                    :style {SINGLE ? "background-color: #a6da95" : "background-color: #ed8796"}
                 "󰕇")
             )
             (progress :value PTIME :style "margin-bottom: 5px;")
@@ -272,7 +273,7 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "50%"
+            :y "49%"
             :width "23%"
             :height "18%"
             :anchor "top left"
@@ -291,6 +292,55 @@
             :orientation "horizontal"
         (label :text TEMP_ICON :style "font-size: 100px;")
         (label :text TEMPERATURE :style "font-size: 100px; color: #ed8796")
+    )
+)
+
+(defwindow jellyfren
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "5%"
+            :width "23%"
+            :height "30%"
+            :anchor "top left"
+        )
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :halign "center"
+            :valign "center"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "vertical"
+        (image :path "/home/auri/Downloads/AurisMonochromeAdventureInv.png" :image-height "350" :image-width "350")
+    )
+)
+
+(defwindow name
+        :monitor 0
+        :geometry (geometry 
+            :x "1%"
+            :y "38%"
+            :width "23%"
+            :height "10%"
+            :anchor "top left"
+        )
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :halign "center"
+            :valign "center"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "vertical"
+        (label :text "Aurelia Aurita" :style "font-size: 30px;")
+        (label :text "@auri-the-jelly" :style "font-size: 20px;")
     )
 )
 
@@ -317,6 +367,8 @@
 (defpoll PTIME :interval "1s" `scripts/music_info --time`)
 
 (defpoll STATUS :interval "1s" `scripts/music_info --status`)
+
+(defpoll SINGLE :interval "1s" `scripts/music_info --sstatus`)
 
 (defpoll COLOR_ONE :interval "1s" `scripts/get_colors 1`)
 

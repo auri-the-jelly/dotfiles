@@ -25,7 +25,7 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
-export PATH=$PATH:/home/auri/.spicetify
+export PATH=$PATH:$HOME/.spicetify
 alias pkhex="WINEPREFIX=~/Games/Prefixes/PKHex/ DOTNET_ROOT=\"C:\Program Files\dotnet\" DOTNET_BUNDLE_EXTRACT_BASE_DIR=\"Z:\home\auri\Games\PKHex\\dotnet_bundle_extract\" ~/.local/share/lutris/runners/wine/wine-ge-8-22-x86_64/bin/wine ~/Games/PKHex/PKHeX.exe"
 alias mcserver="cd ~/Games/MCServer/Server/ && ./start.sh"
 alias ytmp3="yt-dlp -x --audio-format mp3 "

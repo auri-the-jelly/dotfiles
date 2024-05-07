@@ -1,7 +1,7 @@
 #!/bin/bash
 
-COVER="/home/auri/.config/ncmpcpp/previews/preview.png"
-WAL="/home/auri/.cache/wal/colors"
+COVER="$HOME/.config/ncmpcpp/previews/preview.png"
+WAL="$HOME/.cache/wal/colors"
 
 get_first_color () {
     wal -i $COVER -n &> /dev/null

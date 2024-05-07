@@ -15,6 +15,15 @@ get_status() {
 	fi
 }
 
+get_single_status() {
+	single_status=`mpc status | grep "single" | awk '{print $8}'`
+	if [[ $single_status == *"on"* ]]; then
+		echo "true"
+	else
+		echo "false"
+	fi
+}
+
 ## Get song
 get_song() {
 	song=`mpc -f %title% current`
@@ -104,6 +113,8 @@ get_cover() {
 ## Execute accordingly
 if [[ "$1" == "--song" ]]; then
 	get_song
+elif [[ "$1" == "--sstatus" ]]; then
+	get_single_status
 elif [[ "$1" == "--artist" ]]; then
 	get_artist
 elif [[ "$1" == "--nsong" ]]; then

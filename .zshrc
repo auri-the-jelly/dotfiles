@@ -110,4 +110,4 @@ export MPD_PORT="6600"
 eval $(thefuck --alias)
 eval "$(zoxide init --cmd cd zsh)"
 
-export PATH=$PATH:/home/auri/.spicetify
+export PATH=$PATH:$HOME/.spicetify

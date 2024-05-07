@@ -8,6 +8,7 @@ window {
     border-radius: 15px;
     background-color: #24273a;
     color: #cad3f5;
+    /*opacity: 0.8;*/
 }
 
 .music {
@@ -27,12 +28,6 @@ window {
 .weather {
     padding-top: 0px;
     border-radius: 15px;
-}
-
-.pfp {
-    background-image: url('/home/auri/Pictures/auri_pfp_centered.png'); border-radius: 128px;  background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover;
 }
 
 .resource {
