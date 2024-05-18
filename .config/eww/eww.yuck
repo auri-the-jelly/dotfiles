@@ -2,29 +2,29 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "23%"
+            :y "44%"
             :width "32%"
-            :height "26%"
-            :anchor "bottom right"
+            :height "31%"
+            :anchor "top right"
         )
         :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "widget"
     (box
             :class "container"
-            :height "100%"
-            :width "100%"
-            :halign "center"
-            :valign "center"
+            :height "340"
+            :width "612"
+            :halign "start"
+            :valign "start"
             :hexpand true
             :vexpand true
             :spacing 5
             :orientation "horizontal"
         (image 
                 :path ART
-                :image-height "256"
-                :image-width "256"
+                :image-height "270"
+                :image-width "270"
         )
         (box
                 :height "100"
@@ -79,7 +79,7 @@
                     :style {SINGLE ? "background-color: #a6da95" : "background-color: #ed8796"}
                 "󰕇")
             )
-            (progress :value PTIME :style "margin-bottom: 5px;")
+            (progress :value PTIME :valign "center")
         )
     )
 )
@@ -88,15 +88,15 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "50%"
+            :y "17.5%"
             :width "32%"
             :height "26%"
-            :anchor "bottom right"
+            :anchor "top right"
         )
         :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "widget"
     (box 
             :class "container"
             :halign "start"
@@ -157,39 +157,39 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "2%"
+            :y "76.5%"
             :width "32%"
-            :height "20%"
-            :anchor "bottom right"
+            :height "16%"
+            :anchor "top right"
         )
         :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "widget"
     (box
-            :class "container"
+            :class "next"
             :halign "start"
             :valign "start"
             :hexpand false
             :vexpand false
-            :spacing 5
-            :orientation "Vertical"
+            :spacing 0
+            :orientation "vertical"
         (label 
             :text "Next Up"
             :xalign 0
-            :style "font-size: 30px")
+            :style "font-size: 30px; color: #f0c6c6; font-weight: 600")
         (label 
             :text NEXT_TITLE
             :xalign 0
-            :style "font-size: 25px; color: #a5adcb")
+            :style "font-size: 25px; color: #a6da95; padding-left: 10px")
         (label 
             :text NEXT_ARTIST
             :xalign 0
-            :style "font-size: 25px; color: #a5adcb")
+            :style "font-size: 23px; color: #8bd5ca; padding-left: 10px")
         (label 
             :text NEXT_ALBUM
             :xalign 0
-            :style "font-size: 25px; color: #a5adcb")
+            :style "font-size: 23px; color: #91d7e3; padding-left: 10px")
     )
 )
 
@@ -197,15 +197,15 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "77%"
+            :y "3%"
             :width "32%"
             :height "10%"
-            :anchor "bottom right"
+            :anchor "top right"
         )
         :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "widget"
     (box
             :class "power"
             :height "100%"
@@ -214,15 +214,16 @@
             :valign "start"
             :hexpand false
             :vexpand false
-            :spacing 80
+            :spacing 40
             :orientation "horizontal"
         (button
                     :onclick "systemctl poweroff"
                     :style "background-color: #24273a"
                     :hexpand true
+                    :width "100"
             (label 
-                :text "⏻"
-                :xalign 1
+                :text ""
+                :xalign 0.5
                 :yalign 0.5
                 :style "font-size: 80px; color: #ed8796;")
         )
@@ -230,8 +231,8 @@
                     :onclick "hyprctl dispatch exit"
                     :style "background-color: #24273a"
             (label 
-                :text "󰍃"
-                :xalign 1
+                :text "󰗽"
+                :xalign 0.5
                 :yalign 0.5
                 :style "font-size: 80px; color: #8bd5ca")
         )
@@ -253,7 +254,7 @@
                     :style "background-color: #24273a"
             (label 
                 :text ""
-                :xalign 1
+                :xalign 0.5
                 :yalign 0.5
                 :style "font-size: 80px; color: #eed49f")
         )
@@ -262,7 +263,7 @@
                     :style "background-color: #24273a"
             (label 
                 :text ""
-                :xalign 1
+                :xalign 0.5
                 :yalign 0.5
                 :style "font-size: 80px; color: #8aadf4")
         )
@@ -273,25 +274,25 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "49%"
+            :y "45%"
             :width "23%"
             :height "18%"
             :anchor "top left"
         )
-        :stacking "fg"
+        :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "widget"
     (box
             :class "weather"
             :halign "start"
-            :valign "start"
+            :valign "center"
             :hexpand false
             :vexpand false
             :spacing 0
             :orientation "horizontal"
         (label :text TEMP_ICON :style "font-size: 100px;")
-        (label :text TEMPERATURE :style "font-size: 100px; color: #ed8796")
+        (label :text TEMPERATURE :valign 0 :style "font-size: 100px; color: #ed8796")
     )
 )
 
@@ -299,15 +300,15 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "5%"
+            :y "3%"
             :width "23%"
             :height "30%"
             :anchor "top left"
         )
-        :stacking "fg"
+        :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "gif"
     (box
             :halign "center"
             :valign "center"
@@ -315,7 +316,7 @@
             :vexpand false
             :spacing 0;
             :orientation "vertical"
-        (image :path "/home/auri/Downloads/AurisMonochromeAdventureInv.png" :image-height "350" :image-width "350")
+        (image :path "/home/auri/Pictures/Assets/smoljelly.gif" :image-height "256" :image-width "256" :height "256" :width "256")
     )
 )
 
@@ -323,15 +324,15 @@
         :monitor 0
         :geometry (geometry 
             :x "1%"
-            :y "38%"
+            :y "34%"
             :width "23%"
             :height "10%"
             :anchor "top left"
         )
-        :stacking "fg"
+        :stacking "overlay"
         :exclusive true
         :focusable false
-        :namespace "bar"
+        :namespace "widget"
     (box
             :halign "center"
             :valign "center"
@@ -339,10 +340,151 @@
             :vexpand false
             :spacing 0;
             :orientation "vertical"
-        (label :text "Aurelia Aurita" :style "font-size: 30px;")
-        (label :text "@auri-the-jelly" :style "font-size: 20px;")
+        (label :text "Aurelia Aurita" :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "@auri-the-jelly" :style "font-size: 20px; color: #f0c6c6;")
     )
 )
+
+(defwindow battery
+    :monitor 0
+    :geometry (geometry 
+        :x "1%"
+        :y "64%"
+        :width "23%"
+        :height "10%"
+        :anchor "top left"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable false
+    :namespace "widget"
+    (box
+            :class "battery"
+            :halign "center"
+            :valign "center"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "vertical"
+        (box
+                :class "battery"
+                :halign "center"
+                :valign "center"
+                :hexpand false
+                :vexpand false
+                :spacing 0;
+                :orientation "horizontal"
+            (calendar :style "font-size: 25px;")
+        )
+    )
+)
+
+(defwindow taskbar
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "0%"
+            :width "1%"
+            :height "90%"
+            :anchor "top left"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+    (box
+            :halign "center"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 0;
+            :height "620"
+            :orientation "vertical"
+        (box
+                :halign "center"
+                :valign "start"
+                :hexpand true
+                :vexpand true
+                :spacing 0;
+                :orientation "vertical"
+                :style "padding: 5px;"
+            (button
+                    :style "border-radius: 30px 30px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#8bd5ca' : '#363a4f'}"
+                "1")
+            (button
+                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#8bd5ca' : '#363a4f'}"
+                "2")
+            (button
+                    :style "border-radius: 0px 0px 0px 0px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#8bd5ca' : '#363a4f'}"
+                "3")
+            (button
+                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#8bd5ca' : '#363a4f'}"
+                "4")
+            (button
+                    :style "border-radius: 0px 0px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#8bd5ca' : '#363a4f'}"
+                "5")
+        )
+        (box
+                :halign "center"
+                :valign "center"
+                :hexpand true
+                :vexpand true
+                :spacing 0;
+                :orientation "vertical"
+                :style "padding: 5px;"
+            (label :text HOUR :style "font-size: 30px; color: #ed8796")
+            (label :text MIN :style "font-size: 30px; color: #f5a97f")
+        )
+    )
+)
+
+(defwindow neofetch
+        :monitor 0
+        :geometry (geometry 
+            :x "25%"
+            :y "5%"
+            :width "41%"
+            :height "30%"
+            :anchor "top left"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "widget"
+    (box
+            :class "container"
+            :halign "center"
+            :valign "center"
+            :hexpand false
+            :vexpand false
+            :spacing 0
+            :orientation "vertical"
+        (label :text "OS: ${OS_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "Host: ${HOST_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "Kernel: ${KERNEL_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "Uptime: ${UPTIME_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "Battery: ${BATTERY_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "Display: ${DISPLAY_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "CPU: ${CPU_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+        (label :text "GPU: ${GPU_INFO}" :xalign 0 :style "font-size: 30px; color: #7dc4e4;")
+    )
+)
+
+;; Hypr vars
+
+(defpoll ACTIVE_CLASS :interval "1s" `scripts/hypr --class`)
+
+(defpoll ACTIVE_TITLE :interval "1s" `scripts/hypr --title`)
+
+(defpoll ACTIVE_WORKSPACE :interval "100ms" `scripts/hypr --workspace`)
+
+(defpoll CLIPBOARD :interval "1s" `scripts/clipboard`)
+
+;; System vars
+
+(defpoll LAP_BATT :interval "1s" `scripts/batt --lap`)
+
+(defpoll HEADSET_BATT :interval "1s" `scripts/batt --headset`)
 
 (defpoll GPU_TEMP :interval "1s" `scripts/temp --gpu`)
 
@@ -351,6 +493,25 @@
 (defpoll TEMPERATURE :interval "1s" `scripts/weather --temp`)
 
 (defpoll TEMP_ICON :interval "1s" `scripts/weather --icon`)
+
+;;(defpoll OS_INFO :interval "1s" `scripts/sysinfo --os'`)
+
+(defpoll OS_INFO :interval "1s" `scripts/sysinfo --os`)
+
+(defpoll HOST_INFO :interval "1s" `scripts/sysinfo --host`)
+
+(defpoll KERNEL_INFO :interval "1s" `scripts/sysinfo --kernel`)
+
+(defpoll UPTIME_INFO :interval "1s" `scripts/sysinfo --uptime`)
+
+(defpoll BATTERY_INFO :interval "1s" `scripts/sysinfo --battery`)
+
+(defpoll DISPLAY_INFO :interval "1s" `scripts/sysinfo --display`)
+
+(defpoll CPU_INFO :interval "1s" `scripts/sysinfo --cpu`)
+
+(defpoll GPU_INFO :interval "1s" `scripts/sysinfo --gpu`)
+;; Music vars
 
 (defpoll ART :interval "1s" `scripts/music_info --cover`)
 
@@ -373,3 +534,18 @@
 (defpoll COLOR_ONE :interval "1s" `scripts/get_colors 1`)
 
 (defpoll COLOR_TWO :interval "1s" `scripts/get_colors 2`)
+
+;; Time variables
+(defpoll HOUR :interval "5s" `date +\"%I\"`)
+
+(defpoll MIN :interval "5s" `date +\"%M\"`)
+
+(defpoll MER :interval "5s" `date +\"%p\"`)
+
+(defpoll DAY :interval "5s" `date +\"%A\"`)
+
+(defpoll MON :interval "5s" `date +\"%B\"`)
+
+(defpoll DATE :interval "5s" `date +\"%d\"`)
+
+(defpoll YEAR :interval "5s" `date +\"%Y\"`)

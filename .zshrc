@@ -4,6 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH:$HOME/.local/bin:$HOME/.cargo/bin
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export XDG_CONFIG_HOME=$HOME/.config
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -104,10 +105,17 @@ alias pkhex="WINEPREFIX=~/Games/Prefixes/PKHex/ DOTNET_ROOT=\"C:\Program Files\d
 alias mcserver="cd ~/Games/MCServer/Server/ && ./start.sh"
 alias ytmp3="yt-dlp -x --audio-format mp3 "
 
-export MPD_HOST="localhost"
+export MPD_HOST="192.168.1.47"
 export MPD_PORT="6600"
 
 eval $(thefuck --alias)
 eval "$(zoxide init --cmd cd zsh)"
 
 export PATH=$PATH:$HOME/.spicetify
+
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+
+fastfetch -l fedora -c paleofetch

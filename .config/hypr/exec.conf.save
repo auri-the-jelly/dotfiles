@@ -16,5 +16,5 @@ exec-once = mpDris2
 exec-once = mpdscribble
 # Idle Daemon
 exec-once = swayidle -w 
-exec-once = eww daemon
+exec-once = eww daemon >
 exec-once = xdph.sh

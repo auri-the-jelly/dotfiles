@@ -1,0 +1,51 @@
+#!/bin/bash
+
+get_cpu () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'CPU' | cut -f 2- -d ' '`
+}
+
+get_gpu () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'NVIDIA' | cut -f 2- -d ' '`
+}
+
+get_os () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'OS' | cut -f 2- -d ' '`
+}
+
+get_host () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'Host' | cut -f 2- -d ' '`
+}
+
+get_kernel () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'Kernel' | cut -f 2- -d ' '`
+}
+
+get_uptime () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'Uptime' | cut -f 2- -d ' '`
+}
+
+get_battery () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'Battery' | cut -f 2- -d ' '`
+}
+
+get_display () {
+    echo `fastfetch -l fedora -c paleofetch | sed 's/\x1B\[[0-9;\?]*[a-zA-Z]//g' | grep 'Display' | cut -f 2- -d ' '`
+}
+
+if [[ "$1" == "--cpu" ]]; then
+    get_cpu
+elif [[ "$1" == '--gpu' ]]; then
+    get_gpu
+elif [[ "$1" == '--os' ]]; then
+    get_os
+elif [[ "$1" == '--host' ]]; then
+    get_host
+elif [[ "$1" == '--kernel' ]]; then
+    get_kernel
+elif [[ "$1" == '--uptime' ]]; then
+    get_uptime
+elif [[ "$1" == '--battery' ]]; then
+    get_battery
+elif [[ "$1" == '--display' ]]; then
+    get_display
+fi

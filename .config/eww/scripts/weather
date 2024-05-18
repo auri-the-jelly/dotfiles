@@ -1,10 +1,11 @@
+#!/bin/bash
 
 get_temp () {
-    echo `curl -s 'wttr.in/?format=3' | awk '{print $4}' | tail -n 1 | sed 's/+//'`
+    echo `curl -s 'wttr.in/Trivandrum?format=3' | awk '{print $3}' | tail -n 1 | sed 's/+//'`
 }
 
 get_icon () {
-    echo `curl -s 'wttr.in/?format=3' | awk '{print $3}' | tail -n 1`
+    echo `curl -s 'wttr.in/Trivandrum?format=3' | awk '{print $2}' | tail -n 1`
 }
 
 if [[ "$1" == "--temp" ]]; then

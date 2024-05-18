@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cliphist=`~/bin/cliphist list`
+if [[ -z $cliphist ]]; then
+    echo "N/A"
+else
+    help=`echo "'$cliphist'" | tr '\n' ',' | jq 'split(",")'`
+    echo $help
+fi

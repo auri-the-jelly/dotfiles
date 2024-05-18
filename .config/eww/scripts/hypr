@@ -1,0 +1,22 @@
+#!/bin/bash
+
+get_active_window_class () {
+    echo `hyprctl activewindow | grep "class" | awk '{print $2}'`
+}
+
+get_active_window_title () {
+    class=get_active_window_class
+    echo `hyprctl activewindow | grep "title" | awk '{$1=$NF=$(NF-1)=""; print $0}'`
+}
+
+get_active_workspace () {
+    echo `hyprctl activeworkspace | head -n 1 | awk '{print $3}'`
+}
+
+if [[ "$1" == "--class" ]]; then
+    get_active_window_class
+elif [[ "$1" == "--title" ]]; then
+    get_active_window_title
+elif [[ "$1" == "--workspace" ]]; then
+    get_active_workspace
+fi
