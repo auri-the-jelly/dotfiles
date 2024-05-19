@@ -1,7 +1,7 @@
 # List of essential tools and applications
 # wayland
 # pipewire
-# x11
+# xorg-server
 # pulseaudio
 # pipewire-pulse
 # alsa
@@ -51,6 +51,12 @@
 # protonup-qt
 # protontricks
 # winetricks
+# vkd3d
+# vulkan-tools
+# vulkan-icd-loader
+# lib32-vulkan-icd-loader
+# lib32-gamemode
+# lib32-vkd3d
 # nwg-look
 # qt5ct
 # qt6ct
@@ -58,4 +64,71 @@
 # kindle-comic-converter
 # scrcpy
 
-sudo pacman -Syu wayland xorg-server xorg-apps xorg-xwayland pipewire pulseaudio pipewire-pulse alsa pipewire-alsa nvidia NetworkManager lib32-nvidia-utils sddm NetworkManager bluez bluez-utils bluez-deprecated-tools blueman fzf mlocate ttf-liberation otf-font-awesome ttf-ms-fonts ttf-firacode zsh network-manager-applet xfce sddm hyprland eww mpd ncmpcpp dunst fuzzel kitty rofi swayidle waybar swaylock swaybg wlogout wofi firefox vscodium steam spotify lutris heroic-games-launcher discord prism-launcher vlc mpv baobab virt-manager gimp wine winetricks waydroid audacity godot mangohud gamescope gamemode obs-studio protonup-qt protontricks nwg-look qt5ct qt6ct calibre scrcpy
+# sudo pacman -Syu wayland xorg-server xorg-apps xorg-xwayland pipewire pulseaudio pipewire-pulse pipewire-alsa nvidia NetworkManager lib32-nvidia-utils sddm NetworkManager bluez bluez-utils bluez-deprecated-tools blueman fzf mlocate ttf-liberation otf-font-awesome zsh network-manager-applet xfce sddm hyprland eww mpd build-tools wireplumber ncmpcpp dunst fuzzel kitty rofi swayidle waybar swaylock swaybg wofi firefox lutris heroic-games-launcher discord prism-launcher vlc mpv baobab virt-manager gimp wine winetricks waydroid audacity godot mangohud gamescope gamemode vkd3d vulkan-tools vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-driver lib32-gamemode lib32-vkd3d obs-studio protonup-qt protontricks nwg-look qt5ct qt6ct calibre scrcpy
+yay -S wayland \
+    pipewire \
+    xorg-server \
+    pipewire \
+    pulseaudio \
+    pipewire-pulse \
+    alsa-utils \
+    pipewire-alsa \
+    nvidia \
+    networkmanager \
+    bluez \
+    bluez-utils \
+    blueman xfce4 \
+    sddm \
+    hyprland \
+    eww \
+    mpd \
+    ncmpcpp \
+    dunst \
+    fuzzel \
+    kitty \
+    rofi \
+    swayidle \
+    waybar \
+    swaylock \
+    swaybg \
+    wlogout \
+    wofi \
+    firefox \
+    vscodium \
+    steam \
+    spotify \
+    lutris \
+    heroic-games-launcher \
+    discord \
+    prismlauncher \
+    vlc \
+    thefuck \
+    zoxide \
+    fastfetch \
+    eza \
+    mpv \
+    baobab \
+    virt-manager \
+    gimp \
+    wine \
+    waydroid \
+    audacity \
+    godot \
+    mangohud \
+    gamescope \
+    gamemode \
+    obs-studio \
+    protonup-qt \
+    protontricks \
+    winetricks \
+    vkd3d \
+    vulkan-tools \
+    vulkan-icd-loader \
+    lib32-gamemode \
+    lib32-vulkan-icd-loader \
+    lib32-vkd3d \
+    nwg-look \
+    qt5ct \
+    qt6ct \
+    calibre \
+    scrcpy
