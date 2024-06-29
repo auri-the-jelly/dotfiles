@@ -38,11 +38,13 @@
             (label 
                 :text TITLE
                 :xalign 0.5
+                :limit-width 10
                 :style "font-size: 40px; color: #a6da95"
             )
             (label 
                 :text ARTIST
                 :xalign 0.5
+                :limit-width 10
                 :style "font-size: 30px; color: #8bd5ca"
             )
             (box
@@ -345,6 +347,34 @@
     )
 )
 
+(defwindow notifications
+    :monitor 0
+    :geometry (geometry 
+        :x "1%"
+        :y "2%"
+        :width "23%"
+        :height "61%"
+        :anchor "top left"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable false
+    :namespace "widget"
+(box
+        :class "container"
+        :halign "start"
+        :valign "start"
+        :hexpand false
+        :vexpand false
+        :spacing 5;
+        :orientation "vertical"
+    (label :xalign 0 :yalign 0 :text "Notifications" :style "font-size: 30px;")
+    (for entry in {NOTIFICATIONS.data[0]}
+        (button :style "border: 1px solid #fff; border-radius: 10px; padding: 1px 1px 1px 5px" :onclick "dunstctl history-rm ${entry.id.data}"
+            (label :xalign 0 :limit-width 100 :width 100 :markup {entry.message.data})))
+)
+)
+
 (defwindow battery
     :monitor 0
     :geometry (geometry 
@@ -380,7 +410,7 @@
 )
 
 (defwindow taskbar
-        :monitor 0
+        :monitor 1
         :geometry (geometry 
             :x "0%"
             :y "0%"
@@ -392,13 +422,13 @@
         :exclusive true
         :focusable false
         :namespace "bar"
-    (box
+    (centerbox
             :halign "center"
             :valign "start"
             :hexpand true
             :vexpand true
             :spacing 0;
-            :height "620"
+            :height "970"
             :orientation "vertical"
         (box
                 :halign "center"
@@ -410,18 +440,23 @@
                 :style "padding: 5px;"
             (button
                     :style "border-radius: 30px 30px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#8bd5ca' : '#363a4f'}"
+                    :onclick "hyprctl dispatch workspace 1"
                 "1")
             (button
                     :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#8bd5ca' : '#363a4f'}"
+                    :onclick "hyprctl dispatch workspace 2"
                 "2")
             (button
                     :style "border-radius: 0px 0px 0px 0px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#8bd5ca' : '#363a4f'}"
+                    :onclick "hyprctl dispatch workspace 3"
                 "3")
             (button
                     :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#8bd5ca' : '#363a4f'}"
+                    :onclick "hyprctl dispatch workspace 4"
                 "4")
             (button
                     :style "border-radius: 0px 0px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#8bd5ca' : '#363a4f'}"
+                    :onclick "hyprctl dispatch workspace 5"
                 "5")
         )
         (box
@@ -434,6 +469,16 @@
                 :style "padding: 5px;"
             (label :text HOUR :style "font-size: 30px; color: #ed8796")
             (label :text MIN :style "font-size: 30px; color: #f5a97f")
+        )
+        (box
+                :halign "center"
+                :valign "end"
+                :hexpand true
+                :vexpand true
+                :spacing 0;
+                :orientation "vertical"
+                :style "padding: 5px;"
+            (systray :orientation "vertical")
         )
     )
 )
@@ -470,6 +515,7 @@
     )
 )
 
+
 ;; Hypr vars
 
 (defpoll ACTIVE_CLASS :interval "1s" `scripts/hypr --class`)
@@ -479,6 +525,8 @@
 (defpoll ACTIVE_WORKSPACE :interval "100ms" `scripts/hypr --workspace`)
 
 (defpoll CLIPBOARD :interval "1s" `scripts/clipboard`)
+
+(defpoll NOTIFICATIONS :interval "1s" `scripts/notifications`)
 
 ;; System vars
 

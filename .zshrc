@@ -105,7 +105,7 @@ alias pkhex="WINEPREFIX=~/Games/Prefixes/PKHex/ DOTNET_ROOT=\"C:\Program Files\d
 alias mcserver="cd ~/Games/MCServer/Server/ && ./start.sh"
 alias ytmp3="yt-dlp -x --audio-format mp3 "
 
-export MPD_HOST="192.168.1.47"
+export MPD_HOST="localhost"
 export MPD_PORT="6600"
 
 eval $(thefuck --alias)
@@ -118,4 +118,3 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 
-fastfetch -l fedora -c paleofetch

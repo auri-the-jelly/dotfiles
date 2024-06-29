@@ -2,7 +2,7 @@
 
 # Replace with your eww build location
 if [[ -n $(/home/auri/git/eww/target/release/eww active-windows) ]]; then
-    /home/auri/git/eww/target/release/eww close-all
+    eww close-all
 else
-    /home/auri/git/eww/target/release/eww open-many music power next weather disk name battery jellyfren neofetch
+    eww open-many music power next disk battery notifications
 fi

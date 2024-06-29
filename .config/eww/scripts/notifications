@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo `dunstctl history | sed 's/\t//g' | tr -d '\n'`

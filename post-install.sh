@@ -69,18 +69,16 @@ yay -S wayland \
     pipewire \
     xorg-server \
     pipewire \
-    pulseaudio \
     pipewire-pulse \
     alsa-utils \
     pipewire-alsa \
-    nvidia \
     networkmanager \
     bluez \
     bluez-utils \
     blueman xfce4 \
     sddm \
-    hyprland \
-    eww \
+    hyprland-git \
+    eww-git \
     mpd \
     ncmpcpp \
     dunst \
@@ -98,7 +96,7 @@ yay -S wayland \
     steam \
     spotify \
     lutris \
-    heroic-games-launcher \
+    heroic-games-launcher-git \
     discord \
     prismlauncher \
     vlc \

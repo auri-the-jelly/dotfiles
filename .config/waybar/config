@@ -59,7 +59,7 @@
         "tooltip-format": "{app}: {title}"
     },
     "mpd": {
-        "format": "{stateIcon} {artist} \n{randomIcon}{title}",
+        "format": "{stateIcon}   {artist} \n{randomIcon}  {title}",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
@@ -104,7 +104,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %B %d, %Y \n             %R}"
+        "format": "{:%A, %B %d, %Y \n               %R}"
     },
     "cpu": {
         "format": "{usage}% ",
