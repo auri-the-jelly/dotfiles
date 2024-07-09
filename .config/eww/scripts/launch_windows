@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace with your eww build location
-if [[ -n $(/home/auri/git/eww/target/release/eww active-windows) ]]; then
+if [[ -n $(eww active-windows) ]]; then
     eww close-all
 else
     eww open-many music power next disk battery notifications

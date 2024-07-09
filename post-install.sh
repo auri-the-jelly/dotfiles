@@ -65,7 +65,7 @@
 # scrcpy
 
 # sudo pacman -Syu wayland xorg-server xorg-apps xorg-xwayland pipewire pulseaudio pipewire-pulse pipewire-alsa nvidia NetworkManager lib32-nvidia-utils sddm NetworkManager bluez bluez-utils bluez-deprecated-tools blueman fzf mlocate ttf-liberation otf-font-awesome zsh network-manager-applet xfce sddm hyprland eww mpd build-tools wireplumber ncmpcpp dunst fuzzel kitty rofi swayidle waybar swaylock swaybg wofi firefox lutris heroic-games-launcher discord prism-launcher vlc mpv baobab virt-manager gimp wine winetricks waydroid audacity godot mangohud gamescope gamemode vkd3d vulkan-tools vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-driver lib32-gamemode lib32-vkd3d obs-studio protonup-qt protontricks nwg-look qt5ct qt6ct calibre scrcpy
-yay -S wayland \
+yay -Sy wayland \
     pipewire \
     xorg-server \
     pipewire \
