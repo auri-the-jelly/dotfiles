@@ -99,12 +99,10 @@ yay -Sy wayland \
     heroic-games-launcher-git \
     discord \
     prismlauncher \
-    vlc \
     thefuck \
     zoxide \
     fastfetch \
     eza \
-    mpv \
     baobab \
     virt-manager \
     gimp \

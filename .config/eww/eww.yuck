@@ -347,6 +347,39 @@
     )
 )
 
+(defwindow monitor-mode
+    :monitor 0
+    :geometry (geometry 
+        :x "40%"
+        :y "30%"
+        :width "20%"
+        :height "20%"
+        :anchor "top left"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable true
+    :namespace "widget"
+        (box
+                :halign "center"
+                :valign "center"
+                :hexpand false
+                :vexpand false
+                :spacing 20;
+                :orientation "horizontal"
+            (button
+                :onclick "scripts/monitor-mode.py mirror"
+                :width "80"
+                :hexpand true
+                (label :text "󰍹 " :style "font-size: 80px; color: #7dc4e4;")
+            )
+            (button
+                :onclick "scripts/monitor-mode.py ultrawide"
+                (label :text "󰍺 " :style "font-size: 80px; color: #7dc4e4;")
+            )
+        )
+)
+
 (defwindow notifications
     :monitor 0
     :geometry (geometry 
