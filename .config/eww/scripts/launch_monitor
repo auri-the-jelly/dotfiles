@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Replace with your eww build location
+if [[ -n $(eww active-windows) ]]; then
+    eww close-all
+else
+    eww open monitor-mode
+fi
