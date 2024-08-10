@@ -5,20 +5,21 @@
 }
 
 #window {
-    background-color: #24273a;
+    background-color: rgba(26, 27, 38, 0.8);
+    box-shadow: inset 0 -3px #9aa5ce;
     /*border-radius: 10px;*/
-    padding: 0px 10px;
+    padding: 0px 0px;
     margin: 0px 0px 0px 0px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 window#waybar {
-    background-color: rgba(36, 39, 58, 0);
+    background-color: rgba(26, 27, 38, 0.8);
     /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #cad3f5;
     transition-property: background-color;
     transition-duration: .5s;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 window#waybar.hidden {
@@ -30,7 +31,7 @@ window#waybar.empty {
     background-color: transparent;
 }
 window#waybar.solo {
-    background-color: #FFFFFF;
+    background-color: #a9b1d6;
 }
 */
 
@@ -54,7 +55,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #a9b1d6;
 }
 
 /* you can set a style on hover for any module like this */
@@ -63,8 +64,9 @@ button:hover {
 }
 
 #workspaces button {
-    background-color: #363a4f;
-    color: #ffffff;
+    background-color: transparent;
+    box-shadow: inset 0 -3px rgba(154, 165, 206, 0.5);
+    color: #a9b1d6;
     min-width: 20px;
 }
 
@@ -73,14 +75,14 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    /*box-shadow: inset 0 -3px #ffffff;*/
+    background-color: rgba(26, 27, 38, 0.8);
+    /*box-shadow: inset 0 -3px #a9b1d6;*/
 }
 
 #workspaces button.active {
-    color: #282A36;
-    background: #6e738d;
-    border-radius: 0px;
+    color: #a9b1d6;
+    background: rgba(26, 27, 38, 0.8);
+    box-shadow: inset 0 -3px #a9b1d6;
     min-width: 35px;
     padding: 0px 0px 0px 0px;
     transition: all 0.3s ease-in-out;
@@ -93,7 +95,7 @@ button:hover {
 
 #mode {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px #a9b1d6;
 }
 
 #clock,
@@ -114,12 +116,12 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: #a9b1d6;
 }
 
 #custom-padl {
-    background-color: #363a4f;
-    border-radius: 10px 0px 0px 10px;
+    background-color: rgba(26, 27, 38, 0.8);
+    border-radius: 0px 0px 0px 10px;
 }
 
 #window,
@@ -143,14 +145,15 @@ button:hover {
 }
 
 #clock {
-    background-color: #363a4f;
+    background-color: transparent;
     color: #cad3f5;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: transparent;
+    box-shadow: inset 0 -3px #9ece6a;
+    color: #cad3f5;
 }
 
 #battery.charging, #battery.plugged {
@@ -160,7 +163,7 @@ button:hover {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: #a9b1d6;
         color: #000000;
     }
 }
@@ -168,7 +171,7 @@ button:hover {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
-    color: #ffffff;
+    color: #a9b1d6;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -182,12 +185,12 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: #f53c3c;
-    color: #ffffff;
+    color: #a9b1d6;
 }
 
 #power-profiles-daemon.balanced {
     background-color: #2980b9;
-    color: #ffffff;
+    color: #a9b1d6;
 }
 
 #power-profiles-daemon.power-saver {
@@ -213,7 +216,8 @@ label:focus {
 }
 
 #backlight {
-    background-color: #363a4f;
+    background-color: transparent;
+    box-shadow: inset 0 -3px #a9b1d6;
     color: #cad3f5;
 }
 
@@ -226,8 +230,9 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #eed49f;
-    color: #24273a;
+    background-color: transparent;
+    box-shadow: inset 0 -3px #e0af68;
+    color: #a9b1d6;
     /*border-radius: 10px 0px 0px 10px;*/
 }
 
@@ -268,8 +273,9 @@ label:focus {
 }
 
 #tray {
-    background-color: #363a4f;
-    border-radius: 0px 10px 10px 0px;
+    background-color: transparent;
+    box-shadow: inset 0 -3px #2ac3de;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #tray > .passive {
@@ -291,9 +297,10 @@ label:focus {
 }
 
 #mpd {
-    background-color: #a6da95;
-    color: #24273a;
-    border-radius: 10px 0px 0px 10px;
+    background-color: transparent;
+    box-shadow: inset 0 -3px rgba(115, 218, 202, 0.8);
+    color: #a9b1d6;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #mpd.disconnected {
@@ -305,7 +312,8 @@ label:focus {
 }
 
 #mpd.paused {
-    background-color: #8bd5ca;
+    background-color: transparent;
+    box-shadow: inset 0 -3px rgba(115, 218, 202, 1);
 }
 
 #language {

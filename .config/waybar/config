@@ -1,14 +1,14 @@
 {
     "layer": "top", // Waybar at top layer
     // "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
-    "margin-top": 10,
-    "margin-left": 10,
-    "margin-right": 10,
+    "height": 36, // Waybar height (to be removed for auto height)
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     // "width": 1900, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["custom/padl", "hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
     "modules-right": ["mpd", "pulseaudio", "backlight", "battery", "tray"],
     // Modules configuration
@@ -59,7 +59,7 @@
         "tooltip-format": "{app}: {title}"
     },
     "mpd": {
-        "format": "{stateIcon}   {artist} \n{randomIcon}  {title}",
+        "format": "{stateIcon}   {artist} - {title}",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
         "unknown-tag": "N/A",
@@ -104,7 +104,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%A, %B %d, %Y \n               %R}"
+        "format": "{:%A, %B %d, %Y | %R}"
     },
     "cpu": {
         "format": "{usage}% ",

@@ -5,27 +5,28 @@
 }
 
 .background {
-    background-color: #24273a;
+    background-color: rgba(26, 27, 38, 0.2);
     color: #cad3f5;
     border-radius: 15px 15px 15px 15px; 
-    border: 5px solid #b7bdf8;
+    /*border: 5px solid #b7bdf8;*/
 }
 
 .taskbar {
+    background-color: #1a1b26;
     border-radius: 100px; 
     border: 0px solid #b7bdf8;
 }
 
 button {
-    background-color: #363a4f;
+    background-color: rgba(54, 58, 79, 0.2);
 }
 
-.music {
+/*.music {
     background-color: #24273a;
     color: #cad3f5;
     border-radius: 15px 15px 15px 15px; 
     border: 5px solid #b7bdf8;
-}
+}*/
 
 .container {
     padding: 10px;

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [[ -n $(eww active-windows | grep 'battery') ]]; then
+    eww close battery
+fi
+if [[ -n $(eww active-windows | grep 'volume') ]]; then
+    eww close volume
+fi
+if [[ -n $(eww active-windows | grep 'music') ]]; then
+    eww close music
+fi
+if [[ -n $(eww active-windows | grep 'tray') ]]; then
+    eww close tray
+else
+    eww open tray
+fi
