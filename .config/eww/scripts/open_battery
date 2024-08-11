@@ -12,5 +12,5 @@ fi
 if [[ -n $(eww active-windows | grep 'battery') ]]; then
     eww close battery
 else
-    eww open battery
+    eww open-many battery closer
 fi

@@ -12,5 +12,5 @@ fi
 if [[ -n $(eww active-windows | grep 'tray') ]]; then
     eww close tray
 else
-    eww open tray
+    eww open-many tray closer
 fi

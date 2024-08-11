@@ -12,5 +12,5 @@ fi
 if [[ -n $(eww active-windows | grep 'volume') ]]; then
     eww close volume
 else
-    eww open volume
+    eww open-many volume closer
 fi
