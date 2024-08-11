@@ -1,11 +1,11 @@
 (defwindow music
         :monitor 0
         :geometry (geometry 
-            :x "1%"
-            :y "44%"
+            :x "3%"
+            :y "67%"
             :width "32%"
             :height "31%"
-            :anchor "top right"
+            :anchor "top left"
         )
         :stacking "overlay"
         :exclusive true
@@ -383,36 +383,37 @@
 (defwindow notifications
     :monitor 0
     :geometry (geometry 
-        :x "1%"
-        :y "2%"
-        :width "23%"
-        :height "61%"
+        :x "3%"
+        :y "50%"
+        :width "15%"
+        :height "45%"
         :anchor "top left"
     )
     :stacking "overlay"
     :exclusive true
     :focusable false
     :namespace "widget"
-(box
-        :class "container"
-        :halign "start"
-        :valign "start"
-        :hexpand false
-        :vexpand false
-        :spacing 5;
-        :orientation "vertical"
-    (label :xalign 0 :yalign 0 :text "Notifications" :style "font-size: 30px;")
-    (for entry in {NOTIFICATIONS.data[0]}
-        (button :style "border: 1px solid #fff; border-radius: 10px; padding: 1px 1px 1px 5px" :onclick "dunstctl history-rm ${entry.id.data}"
-            (label :xalign 0 :limit-width 100 :width 100 :markup {entry.message.data})))
-)
+    (box
+            :class "container"
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 5;
+            :orientation "vertical"
+        (systray :spacing 20)
+        (label :xalign 0 :yalign 0 :text "Notifications" :style "font-size: 30px;")
+        (for entry in {NOTIFICATIONS.data[0]}
+            (button :style "border: 1px solid #fff; border-radius: 10px; padding: 1px 1px 1px 5px" :onclick "dunstctl history-rm ${entry.id.data}"
+                (label :xalign 0 :limit-width 100 :width 100 :markup {entry.message.data})))
+    )
 )
 
-(defwindow battery
+(defwindow calendar
     :monitor 0
     :geometry (geometry 
-        :x "1%"
-        :y "64%"
+        :x "3%"
+        :y "37%"
         :width "23%"
         :height "10%"
         :anchor "top left"
@@ -443,15 +444,15 @@
 )
 
 (defwindow taskbar
-        :monitor 1
+        :monitor 0
         :geometry (geometry 
-            :x "0%"
-            :y "0%"
+            :x "0.25%"
+            :y "2%"
             :width "1%"
-            :height "90%"
+            :height "96%"
             :anchor "top left"
         )
-        :stacking "overlay"
+        :stacking "fg"
         :exclusive true
         :focusable false
         :namespace "bar"
@@ -461,7 +462,7 @@
             :hexpand true
             :vexpand true
             :spacing 0;
-            :height "970"
+            :height "1040"
             :orientation "vertical"
         (box
                 :halign "center"
@@ -472,23 +473,23 @@
                 :orientation "vertical"
                 :style "padding: 5px;"
             (button
-                    :style "border-radius: 30px 30px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#8bd5ca' : '#363a4f'}"
+                    :style "border-radius: 30px 30px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#bb9af7' : '#414868'}"
                     :onclick "hyprctl dispatch workspace 1"
                 "1")
             (button
-                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#8bd5ca' : '#363a4f'}"
+                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#bb9af7' : '#414868'}"
                     :onclick "hyprctl dispatch workspace 2"
                 "2")
             (button
-                    :style "border-radius: 0px 0px 0px 0px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#8bd5ca' : '#363a4f'}"
+                    :style "border-radius: 0px 0px 0px 0px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#bb9af7' : '#414868'}"
                     :onclick "hyprctl dispatch workspace 3"
                 "3")
             (button
-                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#8bd5ca' : '#363a4f'}"
+                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#bb9af7' : '#414868'}"
                     :onclick "hyprctl dispatch workspace 4"
                 "4")
             (button
-                    :style "border-radius: 0px 0px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#8bd5ca' : '#363a4f'}"
+                    :style "border-radius: 0px 0px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#bb9af7' : '#414868'}"
                     :onclick "hyprctl dispatch workspace 5"
                 "5")
         )
@@ -499,19 +500,188 @@
                 :vexpand true
                 :spacing 0;
                 :orientation "vertical"
-                :style "padding: 5px;"
-            (label :text HOUR :style "font-size: 30px; color: #ed8796")
-            (label :text MIN :style "font-size: 30px; color: #f5a97f")
+            
+            (button
+                    :style "padding: 0px;"
+                    :onclick "/home/auri/.config/eww/scripts/open_calendar"
+                (label :text HOUR :style "font-size: 30px; color: #bb9af7")
+            )
+            (button
+                    :style "padding: 0px;"
+                    :onclick "/home/auri/.config/eww/scripts/open_calendar"
+                (label :text MIN :style "font-size: 30px; color: #f7768e")
+            )
         )
         (box
                 :halign "center"
                 :valign "end"
                 :hexpand true
                 :vexpand true
-                :spacing 0;
+                :spacing 7;
                 :orientation "vertical"
                 :style "padding: 5px;"
-            (systray :orientation "vertical")
+            (button
+                    :style "border-radius: 20px; background: #2ac3de; color: #1a1b26; padding-left: 0px; padding-right: 5px;"
+                    :onclick "/home/auri/.config/eww/scripts/open_music"
+                ""
+            )
+            (circular-progress 
+                    :value VOLUME
+                    :thickness 4
+                (button
+                        :style "border-radius: 20px; color: #1a1b26; background: #ff9e64; padding-left: 0px; padding-right: 2px;"
+                        :onclick "/home/auri/.config/eww/scripts/open_volume"
+                    "󰕾"
+                )
+            )
+            (circular-progress 
+                    :value LAP_BATT
+                    :thickness 4
+                (button
+                        :style "border-radius: 20px; color: #1a1b26 ; background: ${LAP_BATT >= 80 ? '#9ece6a' : '#f7768e'};"
+                        :onclick "/home/auri/.config/eww/scripts/open_battery"
+                    LAP_BATT
+                )
+            )
+            (button
+                    :style "border-radius: 20px; background: #73daca; color: #1a1b26"
+                    :onclick "/home/auri/.config/eww/scripts/open_tray"
+                "󰇘"
+            )
+        )
+    )
+)
+
+(defwindow closer
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "100%"
+            :anchor "top left"
+        )
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+        :namespace "closer"
+        :class "closer"
+    (button 
+            :onclick "eww close music tray battery volume closer"
+            :class "closer"
+    )
+)
+
+(defwindow tray
+    :monitor 0
+    :geometry (geometry 
+        :x "3%"
+        :y "94%"
+        :width "10%"
+        :height "0%"
+        :anchor "top left"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable false
+    :namespace "widget"
+    (box
+            :class "battery"
+            :halign "center"
+            :valign "center"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "vertical"
+        (box
+                :class "battery"
+                :halign "center"
+                :valign "center"
+                :hexpand false
+                :vexpand false
+                :spacing 0;
+                :orientation "horizontal"
+            (systray :orientation "horizontal"
+                :class "systembar-systray"
+                :spacing 20
+                :space-evenly "true"
+                :icon-size 24
+                :prepend-new "true"
+            )
+        )
+    )
+)
+
+(defwindow battery
+    :monitor 0
+    :geometry (geometry 
+        :x "3%"
+        :y "90.5%"
+        :width "7%"
+        :height "1%"
+        :anchor "top left"
+    )
+    :stacking "overlay"
+    :exclusive true
+    :focusable false
+    :namespace "widget"
+    (box
+            :class "battery"
+            :halign "center"
+            :valign "center"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "vertical"
+        (box
+                :class "battery"
+                :halign "center"
+                :valign "center"
+                :hexpand false
+                :vexpand false
+                :spacing 5;
+                :orientation "horizontal"
+            "  ${LAP_BATT}%"
+            "󰋎  ${HEADSET_BATT}%"
+        )
+    )
+)
+
+(defwindow volume
+        :monitor 0
+        :geometry (geometry 
+            :x "3%"
+            :y "86.2%"
+            :width "10%"
+            :height "1%"
+            :anchor "top left"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "widget"
+    (box
+            :halign "center"
+            :valign "center"
+            :hexpand true
+            :vexpand true
+            :spacing 0;
+            :orientation "v"
+        (box
+                :halign "center"
+                :valign "center"
+                :hexpand true
+                :vexpand true
+                :spacing 0;
+                :orientation "h"
+            (scale 
+                    :min 0
+                    :max 141
+                    :width "150"
+                    :value VOLUME
+                    :marks "1,25,50,75,100,140"
+                    :onchange "/home/auri/.config/eww/scripts/volume {}"
+            )
         )
     )
 )
@@ -561,6 +731,8 @@
 
 (defpoll NOTIFICATIONS :interval "1s" `scripts/notifications`)
 
+(defpoll IF_NOTIFICATIONS :interval "1s" `scripts/if-notifications`)
+
 ;; System vars
 
 (defpoll LAP_BATT :interval "1s" `scripts/batt --lap`)
@@ -574,6 +746,8 @@
 (defpoll TEMPERATURE :interval "1s" `scripts/weather --temp`)
 
 (defpoll TEMP_ICON :interval "1s" `scripts/weather --icon`)
+
+(defpoll VOLUME :interval "1s" `scripts/volume`)
 
 ;;(defpoll OS_INFO :interval "1s" `scripts/sysinfo --os'`)
 

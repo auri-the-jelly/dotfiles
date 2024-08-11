@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Replace with your eww build location
-if [[ -n $(eww active-windows) ]]; then
-    eww close-all
+if [[ -n $(eww active-windows | grep 'power') ]]; then
+    eww close power
 else
-    eww open-many music power next disk battery notifications
+    eww open-many power
 fi
