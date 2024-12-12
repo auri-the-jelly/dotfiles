@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ "$1" == "--title" ]]; then
+	echo `hyprctl activewindow | grep -e "title:" | cut -d' ' -f2-`
+elif [[ "$1" == "--class" ]]; then
+	echo `hyprctl activewindow | grep -e "initialTitle:" | cut -d' ' -f2-`
+fi

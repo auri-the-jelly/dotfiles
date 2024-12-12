@@ -1,0 +1,1 @@
+nmcli -t -f SSID,SIGNAL,SECURITY,IN-USE dev wifi | awk -F ':' 'BEGIN {print "["} {if(NR!=1) {print ","} print "{\"SSID\":\"" $1 "\", \"SIGNAL\":\"" $2 "\", \"SECURITY\":\"" $3 "\", \"CONNECTED\":\"" ($4=="*"?"true":"false") "\"}"} END {print "]"}'

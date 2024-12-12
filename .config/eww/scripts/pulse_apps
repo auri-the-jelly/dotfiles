@@ -1,0 +1,62 @@
+#!/bin/python
+
+import json
+import os
+import subprocess
+
+media_names = (
+    subprocess.check_output(
+        "pactl list sink-inputs | grep 'media.name' | cut -d ' ' -f3-",
+        shell=True,
+        text=True,
+    )
+    .replace('"', "")
+    .split("\n")
+)
+
+app_names = (
+    subprocess.check_output(
+        "pactl list sink-inputs | grep 'node.name' | cut -d ' ' -f3-",
+        shell=True,
+        text=True,
+    )
+    .replace("\t ", "")
+    .replace('"', "")
+    .split("\n")
+)
+
+volumes = (
+    subprocess.check_output(
+        "pactl list sink-inputs | grep 'Volume' | awk '{print $5}'",
+        shell=True,
+        text=True,
+    )
+    .replace("%", "")
+    .replace("\t ", "")
+    .replace('"', "")
+    .split("\n")
+)
+
+indices = (
+    subprocess.check_output(
+        "pactl list sink-inputs | grep -e 'Sink Input' | awk '{print $3}'",
+        shell=True,
+        text=True,
+    )
+    .replace("#", "")
+    .replace("\t ", "")
+    .replace('"', "")
+    .split("\n")
+)
+
+sinks = [
+    {
+        "media_name": media_names[i],
+        "app_name": app_names[i],
+        "index": indices[i],
+        "volume": volumes[i],
+    }
+    for i in range(0, len(media_names))
+][:-1]
+sinks_json = json.dumps(sinks)
+print(sinks_json)

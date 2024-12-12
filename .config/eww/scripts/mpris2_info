@@ -1,0 +1,6 @@
+playerctl -l | grep -v "firefox" | while read -r player; do
+    artist=$(playerctl -p "$player" metadata artist 2>/dev/null || echo "")
+    title=$(playerctl -p "$player" metadata title 2>/dev/null || echo "")
+    status=$(playerctl -p "$player" status 2>/dev/null || echo "")
+    echo "{\"PLAYER\":\"$player\", \"ARTIST\":\"$artist\", \"TITLE\":\"$title\", \"STATUS\":\"$status\"}"
+done | awk 'BEGIN {print "["} {if(NR!=1) {print ","} print} END {print "]"}'
