@@ -64,8 +64,8 @@
 # kindle-comic-converter
 # scrcpy
 
-# sudo pacman -Syu wayland xorg-server xorg-apps xorg-xwayland pipewire pulseaudio pipewire-pulse pipewire-alsa nvidia NetworkManager lib32-nvidia-utils sddm NetworkManager bluez bluez-utils bluez-deprecated-tools blueman fzf mlocate ttf-liberation otf-font-awesome zsh network-manager-applet xfce sddm hyprland eww mpd build-tools wireplumber ncmpcpp dunst fuzzel kitty rofi swayidle waybar swaylock swaybg wofi firefox lutris heroic-games-launcher discord prism-launcher vlc mpv baobab virt-manager gimp wine winetricks waydroid audacity godot mangohud gamescope gamemode vkd3d vulkan-tools vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-driver lib32-gamemode lib32-vkd3d obs-studio protonup-qt protontricks nwg-look qt5ct qt6ct calibre scrcpy
-yay -Sy wayland \
+# sudo pacman -Syu wayland xorg-server xorg-apps xorg-xwayland pipewire pulseaudio pipewire-pulse pipewire-alsa nvidia NetworkManager lib32-nvidia-utils sddm NetworkManager bluez bluez-utils blueman fzf mlocate ttf-liberation otf-font-awesome zsh network-manager-applet xfce sddm hyprland eww mpd build-tools wireplumber ncmpcpp dunst fuzzel kitty rofi swayidle waybar swaylock swaybg wofi firefox lutris heroic-games-launcher discord prism-launcher vlc mpv baobab virt-manager gimp wine winetricks waydroid audacity godot mangohud gamescope gamemode vkd3d vulkan-tools vulkan-icd-loader lib32-vulkan-icd-loader lib32-vulkan-driver lib32-gamemode lib32-vkd3d obs-studio protonup-qt protontricks nwg-look qt5ct qt6ct calibre scrcpy
+sudo pacman -Sy wayland \
     pipewire \
     xorg-server \
     pipewire \
@@ -75,10 +75,17 @@ yay -Sy wayland \
     networkmanager \
     bluez \
     bluez-utils \
-    blueman xfce4 \
+    blueman \
+    dolphin \
+    xfce4-appfinder \
+    xfce4-panel \
+    xfce4-power-manager \
+    xfce4-session \
+    xfce4-settings \
+    xfce4-terminal \
+    xfdesktop \
+    xfwm4 \
     sddm \
-    hyprland-git \
-    eww-git \
     mpd \
     ncmpcpp \
     dunst \
@@ -89,14 +96,10 @@ yay -Sy wayland \
     waybar \
     swaylock \
     swaybg \
-    wlogout \
     wofi \
     firefox \
-    vscodium \
     steam \
-    spotify \
     lutris \
-    heroic-games-launcher-git \
     discord \
     prismlauncher \
     thefuck \
@@ -107,15 +110,12 @@ yay -Sy wayland \
     virt-manager \
     gimp \
     wine \
-    waydroid \
     audacity \
     godot \
     mangohud \
     gamescope \
     gamemode \
     obs-studio \
-    protonup-qt \
-    protontricks \
     winetricks \
     vkd3d \
     vulkan-tools \
@@ -128,3 +128,6 @@ yay -Sy wayland \
     qt6ct \
     calibre \
     scrcpy
+
+yay -S heroic-games-launcher-git waydroid protonup-qt hyprland-git vscodium spotify eww-git wlogout protontricks
+sudo dnf install xorg-server hyprland eww dunst ncmpcpp fuzzel kitty rofi swayidle waybar swaylock swaybg wlogout wofi vscodium spotify lutris heroic-games-launcher discord prism-launcher vlc mpv ani-cli filelight virt-manager gimp wine waydroid audacity godot mangohud gamescope gamescope-session-plus gamescope-session-steam gamemode obs-studio protonup-qt protontricks winetricks vkd3d qt5ct qt6ct calibre kindle-comic-converter scrcpy

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ "$1" == "--lap" ]]; then
-	echo `upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep "percentage" | awk '{print $2}' | sed 's/%//'`
+	echo `upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep "percentage" | awk '{print $2}' | sed 's/%//'`
 elif [[ "$1" == "--headset" ]]; then
-	echo `upower -i /org/freedesktop/UPower/devices/headset_dev_98_67_2E_DD_C5_27 | grep "percentage" | awk '{print $2}' | sed 's/%//'`
+	echo `upower -i /org/freedesktop/UPower/devices/headset_dev_E8_9E_13_C9_76_BD | grep "percentage" | awk '{print $2}' | sed 's/%//'`
 fi

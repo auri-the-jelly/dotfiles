@@ -2,9 +2,14 @@
 
 SINK="$(pactl get-default-sink)"
 
-echo "$(pactl get-sink-volume $SINK | awk '{ print $5 }')" | sed "s/%//"
+if [[ -z $1 ]]; then
+    echo "$(pactl get-sink-volume $SINK | awk '{ print $5 }')" | sed "s/%//"
+else
+    echo "$(pactl get-sink-volume $1 | awk '{ print $5 }')" | sed "s/%//"
+fi
 
 
-if [[ -n "$1" ]]; then
-    pactl set-sink-volume $SINK "$1%"
+
+if [[ -n "$2" ]]; then
+    pactl set-sink-volume $1 "$2%"
 fi

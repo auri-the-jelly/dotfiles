@@ -108,7 +108,6 @@ alias ytmp3="yt-dlp -x --audio-format mp3 "
 export MPD_HOST="localhost"
 export MPD_PORT="6600"
 
-eval $(thefuck --alias)
 eval "$(zoxide init --cmd cd zsh)"
 
 export PATH=$PATH:$HOME/.spicetify
@@ -117,4 +116,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+export NEXTCLOUD_PHP_CONFIG=/etc/webapps/nextcloud/php.ini
+eval "$(starship init zsh)"
 
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
