@@ -1,0 +1,6 @@
+bluetoothctl devices | while read -r line; do
+    mac=$(echo "$line" | awk '{print $2}')
+    name=$(echo "$line" | awk '{print substr($0, index($0,$3))}')
+    connected=$(bluetoothctl info "$mac" | grep -q "Connected: yes" && echo "true" || echo "false")
+    echo "{\"MAC\":\"$mac\", \"NAME\":\"$name\", \"CONNECTED\":$connected}"
+done | awk 'BEGIN {print "["} {if(NR!=1) {print ","} print} END {print "]"}'

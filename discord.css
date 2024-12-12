@@ -1,0 +1,68 @@
+@import url('https://comfy-themes.github.io/Discord/betterdiscord/main.css');
+@import url('https://comfy-themes.github.io/Discord/betterdiscord/no-scrollbar.css');
+@import url('https://comfy-themes.github.io/Discord/betterdiscord/better-spotify.css');
+
+:root {
+  --mention-color-bar: #E67E80;
+  --mention-color-background: rgba(198, 98, 98, 0.12);
+  --mention-color-hover: rgba(198, 98, 98, 0.15);
+  --mention-color: #E67E80;
+  --unread-color: #7FBBB3;
+  --chat-buttons: #7FBBB3;
+  --avatar-radius: 25px;
+  --status-radius: 10px;
+  --server-radius: 25px;
+  --status-background: url('https://i.imgur.com/ODa8LKK.jpg');
+  --online: #A7C080;
+  --iddle: #DBBC7F;
+  --dnd: #E67E80;
+  --offline: #7A8478;
+  --streaming: #D699B6;
+  --spotify-color: #83C092;
+  --user-buttons-spacing: 8px;
+  --user-buttons-color: #7FBBB3;
+  --role-circle: 20px;
+  --discord-logo: none;
+  --colored-emoji: grayscale(0%);
+  --disable-animations: 2s channel-unread infinite;
+}
+
+.theme-dark {
+  --background-primary: #2D353B;
+  --background-secondary: #343F44;
+  --background-secondary-alt: #3D484D;
+  --background-tertiary: #232A2E;
+  --background-mobile-primary: #475258;
+  --background-mobile-secondary: #4F585E;
+  --channeltextarea-background: #475258;
+  --background-accent: #A7C080;
+  --background-modifier-hover: rgba(0, 0, 0, 0.06);
+  --background-modifier-active: rgba(0, 0, 0, 0.10);
+  --background-modifier-selected: rgba(0, 0, 0, 0.12);
+  --deprecated-card-bg: rgba(18, 20, 31, 0.39);
+  --background-floating: rgb(35,42,46,1);
+  --deprecated-quickswitcher-input-background: #232A2E;
+  --scrollbar-auto-thumb: #232A2E;
+  --scrollbar-auto-track: #191F2E;
+  --scrollbar-thin-thumb: #141925;
+  --activity-card-background: #101320;
+  --background-message-hover: transparent;
+  --elevation-low: none;
+}
+
+.theme-light {
+  --background-primary: #23283D;
+  --background-secondary: #1E2233;
+  --background-secondary-alt: #191F2E;
+  --background-tertiary: #101320;
+  --background-accent: #7289DA;
+  --background-modifier-hover: #262B41;
+  --background-modifier-active: #262B41;
+  --header-primary: #fff;
+  --header-secondary: #B1B5B9;
+  --text-normal: #8E9297;
+}
+
+/* Any custom CSS below here */
+
+

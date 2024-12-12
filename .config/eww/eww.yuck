@@ -1,8 +1,10 @@
+(include "./discord.yuck")
+(include "./cyberpunk.yuck")
 (defwindow music
         :monitor 0
         :geometry (geometry 
             :x "3%"
-            :y "67%"
+            :y "44.5%"
             :width "32%"
             :height "31%"
             :anchor "top left"
@@ -11,77 +13,143 @@
         :exclusive true
         :focusable false
         :namespace "widget"
+        :class "background2"
     (box
-            :class "container"
+            :class "music-widget"
             :height "340"
             :width "612"
             :halign "start"
             :valign "start"
             :hexpand true
             :vexpand true
-            :spacing 5
-            :orientation "horizontal"
-        (image 
+            :spacing 20
+            :orientation "v"
+        (box
+            (image 
+                :path M_ART
+                :image-height "270"
+                :image-width "270"
+            )
+            (box
+                    :height "100"
+                    :width "272"
+                    :halign "center"
+                    :valign "center"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 5
+                    :orientation "vertical"
+                (label 
+                    :text M_TITLE
+                    :xalign 0.5
+                    :limit-width 10
+                    :style "font-size: 40px; color: #a6da95"
+                )
+                (label 
+                    :text M_ARTIST
+                    :xalign 0.5
+                    :limit-width 10
+                    :style "font-size: 30px; color: #8bd5ca"
+                )
+                (box
+                    :orientation "horizontal"
+                    :spacing 5
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "playerctl previous"
+                    "")
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "playerctl play-pause"
+                    STATUS)
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "playerctl next"
+                    "")
+                )
+                (box
+                    :orientation "horizontal"
+                    :spacing 5
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --shuffle"
+                    "")
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --single"
+                        :style {SINGLE ? "background-color: #a6da95" : "background-color: #ed8796"}
+                    "󰕇")
+                )
+            )
+        )
+        (box
+            (image 
                 :path ART
                 :image-height "270"
                 :image-width "270"
-        )
-        (box
-                :height "100"
-                :width "272"
-                :halign "center"
-                :valign "center"
-                :hexpand true
-                :vexpand true
-                :spacing 5
-                :orientation "vertical"
-            (label 
-                :text TITLE
-                :xalign 0.5
-                :limit-width 10
-                :style "font-size: 40px; color: #a6da95"
-            )
-            (label 
-                :text ARTIST
-                :xalign 0.5
-                :limit-width 10
-                :style "font-size: 30px; color: #8bd5ca"
             )
             (box
-                :orientation "horizontal"
-                :spacing 5
-                (button 
-                    :height "10" 
-                    :width "10"
-                    :onclick "scripts/music_info --prev"
-                "")
-                (button 
-                    :height "10" 
-                    :width "10"
-                    :onclick "scripts/music_info --toggle"
-                STATUS)
-                (button 
-                    :height "10" 
-                    :width "10"
-                    :onclick "scripts/music_info --next"
-                "")
+                    :height "100"
+                    :width "272"
+                    :halign "center"
+                    :valign "center"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 5
+                    :orientation "vertical"
+                (label 
+                    :text TITLE
+                    :xalign 0.5
+                    :limit-width 10
+                    :style "font-size: 40px; color: #a6da95"
+                )
+                (label 
+                    :text ARTIST
+                    :xalign 0.5
+                    :limit-width 10
+                    :style "font-size: 30px; color: #8bd5ca"
+                )
+                (box
+                    :orientation "horizontal"
+                    :spacing 5
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --prev"
+                    "")
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --toggle"
+                    STATUS)
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --next"
+                    "")
+                )
+                (box
+                    :orientation "horizontal"
+                    :spacing 5
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --shuffle"
+                    "")
+                    (button 
+                        :height "10" 
+                        :width "10"
+                        :onclick "scripts/music_info --single"
+                        :style {SINGLE ? "background-color: #a6da95" : "background-color: #ed8796"}
+                    "󰕇")
+                )
+                (progress :value PTIME :valign "center")
             )
-            (box
-                :orientation "horizontal"
-                :spacing 5
-                (button 
-                    :height "10" 
-                    :width "10"
-                    :onclick "scripts/music_info --shuffle"
-                "")
-                (button 
-                    :height "10" 
-                    :width "10"
-                    :onclick "scripts/music_info --single"
-                    :style {SINGLE ? "background-color: #a6da95" : "background-color: #ed8796"}
-                "󰕇")
-            )
-            (progress :value PTIME :valign "center")
         )
     )
 )
@@ -198,29 +266,30 @@
 (defwindow power
         :monitor 0
         :geometry (geometry 
-            :x "1%"
-            :y "3%"
-            :width "32%"
-            :height "10%"
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "100%"
             :anchor "top right"
         )
         :stacking "overlay"
         :exclusive true
         :focusable false
         :namespace "widget"
+        :class "background2"
     (box
             :class "power"
             :height "100%"
             :width "100%"
-            :halign "start"
-            :valign "start"
+            :halign "center"
+            :valign "center"
             :hexpand false
             :vexpand false
             :spacing 40
             :orientation "horizontal"
         (button
                     :onclick "systemctl poweroff"
-                    :style "background-color: #24273a"
+                    :style "background-color: transparent"
                     :hexpand true
                     :width "100"
             (label 
@@ -231,7 +300,7 @@
         )
         (button
                     :onclick "hyprctl dispatch exit"
-                    :style "background-color: #24273a"
+                    :style "background-color: transparent"
             (label 
                 :text "󰗽"
                 :xalign 0.5
@@ -239,21 +308,8 @@
                 :style "font-size: 80px; color: #8bd5ca")
         )
         (button
-                    :onclick "swaylock \
-        			--screenshots \
-        			--indicator-image=/home/auri/Pictures/SMBGSymbol.png \
-        			--indicator-radius 500 \
-        			--indicator-thickness 10 \
-        			--effect-blur 7x5 \
-        			--effect-vignette 0.5:0.5 \
-        			--indicator \
-        			--line-color 00ffff00 \
-        			--inside-color 00000000 \
-        			--separator-color 00000000 \
-        			--ring-color 404850 \
-        			--key-hl-color 0f72bc \
-				--grace 5  & sleep 300 && hyprctl dispatch dpms off"
-                    :style "background-color: #24273a"
+                    :onclick "hyprctl dispatch exec hyprlock"
+                    :style "background-color: transparent"
             (label 
                 :text ""
                 :xalign 0.5
@@ -262,7 +318,7 @@
         )
         (button
                     :onclick "systemctl reboot"
-                    :style "background-color: #24273a"
+                    :style "background-color: transparent"
             (label 
                 :text ""
                 :xalign 0.5
@@ -393,6 +449,9 @@
     :exclusive true
     :focusable false
     :namespace "widget"
+    :class "background2"
+    (scroll
+
     (box
             :class "container"
             :halign "start"
@@ -406,6 +465,7 @@
         (for entry in {NOTIFICATIONS.data[0]}
             (button :style "border: 1px solid #fff; border-radius: 10px; padding: 1px 1px 1px 5px" :onclick "dunstctl history-rm ${entry.id.data}"
                 (label :xalign 0 :limit-width 100 :width 100 :markup {entry.message.data})))
+    )
     )
 )
 
@@ -430,6 +490,7 @@
             :vexpand false
             :spacing 0;
             :orientation "vertical"
+            :class "background2"
         (box
                 :class "battery"
                 :halign "center"
@@ -446,10 +507,10 @@
 (defwindow taskbar
         :monitor 0
         :geometry (geometry 
-            :x "0.25%"
-            :y "2%"
-            :width "1%"
-            :height "96%"
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "1%"
             :anchor "top left"
         )
         :stacking "fg"
@@ -461,37 +522,36 @@
             :valign "start"
             :hexpand true
             :vexpand true
-            :spacing 0;
-            :height "1040"
-            :orientation "vertical"
+            :height "1"
+            :width "1920"
+            :orientation "horizontal"
         (box
-                :halign "center"
+                :halign "start"
                 :valign "start"
-                :hexpand true
-                :vexpand true
-                :spacing 0;
-                :orientation "vertical"
-                :style "padding: 5px;"
+                :hexpand false
+                :vexpand false
+                :spacing 2;
+                :orientation "h"
             (button
-                    :style "border-radius: 30px 30px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#bb9af7' : '#414868'}"
+                    :style "border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 1 ? '#000000' : '#A7C080'}"
                     :onclick "hyprctl dispatch workspace 1"
-                "1")
+                )
             (button
-                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#bb9af7' : '#414868'}"
+                    :style "border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 2 ? '#000000' : '#A7C080'}"
                     :onclick "hyprctl dispatch workspace 2"
-                "2")
+                )
             (button
-                    :style "border-radius: 0px 0px 0px 0px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#bb9af7' : '#414868'}"
+                    :style "border-radius: 30px 30px 30px 30px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 3 ? '#000000' : '#A7C080'}"
                     :onclick "hyprctl dispatch workspace 3"
-                "3")
+                )
             (button
-                    :style "border-radius: 0px 0px 0px 0px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#bb9af7' : '#414868'}"
+                    :style "border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 4 ? '#000000' : '#A7C080'}"
                     :onclick "hyprctl dispatch workspace 4"
-                "4")
+                )
             (button
-                    :style "border-radius: 0px 0px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#bb9af7' : '#414868'}"
+                    :style "border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 5 ? '#000000' : '#A7C080'}"
                     :onclick "hyprctl dispatch workspace 5"
-                "5")
+                )
         )
         (box
                 :halign "center"
@@ -499,37 +559,30 @@
                 :hexpand true
                 :vexpand true
                 :spacing 0;
-                :orientation "vertical"
-            
+                :orientation "h"
             (button
                     :style "padding: 0px;"
                     :onclick "/home/auri/.config/eww/scripts/open_calendar"
-                (label :text HOUR :style "font-size: 30px; color: #bb9af7")
-            )
-            (button
-                    :style "padding: 0px;"
-                    :onclick "/home/auri/.config/eww/scripts/open_calendar"
-                (label :text MIN :style "font-size: 30px; color: #f7768e")
+                (label :text "${HOUR}:${MIN}" :style "font-size: 18px; color: #7FBBB3")
             )
         )
         (box
-                :halign "center"
+                :halign "end"
                 :valign "end"
-                :hexpand true
-                :vexpand true
+                :hexpand false
+                :vexpand false
                 :spacing 7;
-                :orientation "vertical"
-                :style "padding: 5px;"
+                :orientation "h"
             (button
-                    :style "border-radius: 20px; background: #2ac3de; color: #1a1b26; padding-left: 0px; padding-right: 5px;"
+                    :style "border-radius: 20px; background: #D699B6; color: #000000; padding-left: 0px; padding-right: 5px;"
                     :onclick "/home/auri/.config/eww/scripts/open_music"
-                ""
+                (label :text "" :style "font-size: 200px;")
             )
             (circular-progress 
                     :value VOLUME
                     :thickness 4
                 (button
-                        :style "border-radius: 20px; color: #1a1b26; background: #ff9e64; padding-left: 0px; padding-right: 2px;"
+                        :style "border-radius: 20px; color: #000000; background: #DBBC7F; padding-left: 0px; padding-right: 0px;"
                         :onclick "/home/auri/.config/eww/scripts/open_volume"
                     "󰕾"
                 )
@@ -538,13 +591,13 @@
                     :value LAP_BATT
                     :thickness 4
                 (button
-                        :style "border-radius: 20px; color: #1a1b26 ; background: ${LAP_BATT >= 80 ? '#9ece6a' : '#f7768e'};"
+                        :style "border-radius: 20px; color: #000000 ; background: ${LAP_BATT >= 70 ? '#83C092' : '#E67E80'};"
                         :onclick "/home/auri/.config/eww/scripts/open_battery"
                     LAP_BATT
                 )
             )
             (button
-                    :style "border-radius: 20px; background: #73daca; color: #1a1b26"
+                    :style "border-radius: 20px; background: #E69875; color: #000000"
                     :onclick "/home/auri/.config/eww/scripts/open_tray"
                 "󰇘"
             )
@@ -575,10 +628,10 @@
 (defwindow tray
     :monitor 0
     :geometry (geometry 
-        :x "3%"
-        :y "94%"
-        :width "10%"
-        :height "0%"
+        :x "97%"
+        :y "6%"
+        :width "2%"
+        :height "3%"
         :anchor "top left"
     )
     :stacking "overlay"
@@ -592,7 +645,7 @@
             :hexpand false
             :vexpand false
             :spacing 0;
-            :orientation "vertical"
+            :orientation "v"
         (box
                 :class "battery"
                 :halign "center"
@@ -600,8 +653,8 @@
                 :hexpand false
                 :vexpand false
                 :spacing 0;
-                :orientation "horizontal"
-            (systray :orientation "horizontal"
+                :orientation "v"
+            (systray :orientation "v"
                 :class "systembar-systray"
                 :spacing 20
                 :space-evenly "true"
@@ -615,9 +668,9 @@
 (defwindow battery
     :monitor 0
     :geometry (geometry 
-        :x "3%"
-        :y "90.5%"
-        :width "7%"
+        :x "90%"
+        :y "2.5%"
+        :width "4%"
         :height "1%"
         :anchor "top left"
     )
@@ -625,6 +678,7 @@
     :exclusive true
     :focusable false
     :namespace "widget"
+    :class "background2"
     (box
             :class "battery"
             :halign "center"
@@ -633,6 +687,7 @@
             :vexpand false
             :spacing 0;
             :orientation "vertical"
+            :class "background2"
         (box
                 :class "battery"
                 :halign "center"
@@ -640,7 +695,7 @@
                 :hexpand false
                 :vexpand false
                 :spacing 5;
-                :orientation "horizontal"
+                :orientation "v"
             "  ${LAP_BATT}%"
             "󰋎  ${HEADSET_BATT}%"
         )
@@ -648,6 +703,48 @@
 )
 
 (defwindow volume
+        :monitor 0
+        :geometry (geometry 
+            :x "88%"
+            :y "6%"
+            :width "10%"
+            :height "1%"
+            :anchor "top left"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "widget"
+    (box
+            :halign "start"
+            :valign "center"
+            :hexpand true
+            :vexpand true
+            :spacing 5;
+            :orientation "v"
+        (for entry in PULSE
+            (box
+                    :halign "start"
+                    :valign "start"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 0;
+                    :orientation "v"
+                (label :text "${entry.description}" :limit-width 20)
+                (scale 
+                        :min 0
+                        :max 141
+                        :width "210"
+                        :value "${entry.volume}"
+                        :marks "1,25,50,75,100,140"
+                        :onchange "/home/auri/.config/eww/scripts/volume ${entry.name} {}"
+                )
+            )            
+        )
+    )
+)
+
+(defwindow remnants_of_volume
         :monitor 0
         :geometry (geometry 
             :x "3%"
@@ -680,7 +777,7 @@
                     :width "150"
                     :value VOLUME
                     :marks "1,25,50,75,100,140"
-                    :onchange "/home/auri/.config/eww/scripts/volume {}"
+                    :onchange "/home/auri/.config/eww/scripts/volume bluez_output.98_67_2E_DD_C5_27.1 {}"
             )
         )
     )
@@ -721,6 +818,10 @@
 
 ;; Hypr vars
 
+(defpoll WINDOW_TITLE :interval "1s" `scripts/active_window --title`)
+
+(defpoll WINDOW_CLASS :interval "1s" `scripts/active_window --class`)
+
 (defpoll ACTIVE_CLASS :interval "1s" `scripts/hypr --class`)
 
 (defpoll ACTIVE_TITLE :interval "1s" `scripts/hypr --title`)
@@ -748,6 +849,8 @@
 (defpoll TEMP_ICON :interval "1s" `scripts/weather --icon`)
 
 (defpoll VOLUME :interval "1s" `scripts/volume`)
+
+(defpoll PULSE :interval "1s" `scripts/pulse`)
 
 ;;(defpoll OS_INFO :interval "1s" `scripts/sysinfo --os'`)
 
@@ -785,6 +888,12 @@
 (defpoll STATUS :interval "1s" `scripts/music_info --status`)
 
 (defpoll SINGLE :interval "1s" `scripts/music_info --sstatus`)
+
+(defpoll M_ART :interval "1s" `scripts/mpris_info --cover`)
+
+(defpoll M_TITLE :interval "1s" `scripts/mpris_info --song`)
+
+(defpoll M_ARTIST :interval "1s" `scripts/mpris_info --artist`)
 
 (defpoll COLOR_ONE :interval "1s" `scripts/get_colors 1`)
 

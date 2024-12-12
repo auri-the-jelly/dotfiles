@@ -1,0 +1,584 @@
+(defwindow bar2
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "0%"
+            :width "100%"
+            :height "1%"
+            :anchor "top left"
+        )
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+        :class "taskbar"
+    (box
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "h"
+            :height "25"
+            :class "workspaces"
+            (box
+                (button
+                    :style "margin-left: 5px; margin-top: 7px; padding: 5px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 1 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 1 ? '#000000' : '#A7C080'}"
+                    :onclick "hyprctl dispatch workspace 1"
+                    
+                )
+                (button
+                        :style "margin-left: 5px; margin-top: 7px; padding: 3px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 2 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 2 ? '#000000' : '#A7C080'}"
+                        :onclick "hyprctl dispatch workspace 2"
+                    )
+                (button
+                        :style "margin-left: 5px; margin-top: 7px; padding: 3px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background-color: ${(ACTIVE_WORKSPACE == 3) ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 3 ? '#000000' : '#A7C080'}"
+                        :onclick "hyprctl dispatch workspace 3"
+                    )
+                (button
+                        :style "margin-left: 5px; margin-top: 7px; padding: 3px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 4 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 4 ? '#000000' : '#A7C080'}"
+                        :onclick "hyprctl dispatch workspace 4"
+                    )
+                (button
+                        :style "margin-left: 5px; margin-top: 7px; padding: 3px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background-color: ${ACTIVE_WORKSPACE == 5 ? '#A7C080' : '#343F44'}; color: ${ACTIVE_WORKSPACE == 5 ? '#000000' : '#A7C080'}"
+                        :o`nclick "hyprctl dispatch workspace 5"
+                    )
+            )
+    )
+)
+
+(defwindow bar3
+        :monitor 0
+        :geometry (geometry 
+            :x "5.1%"
+            :y "0%"
+            :width "100%"
+            :height "2%"
+            :anchor "top left"
+        )
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+        :class "taskbar"
+    (box
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "h"
+            :height "26"
+            :class "window-title"
+        (label :class "smol-text1" :limit-width "20" :text ACTIVE_CLASS)
+        (label :class "smol-text2" :limit-width "20" :text "${ACTIVE_TITLE}")
+        (label :class "smol-text1" :limit-width "20" :text {ARTIST != "Offline" ? ARTIST : M_ARTIST})
+        (label :class "smol-text2" :limit-width "20" :text {TITLE != "Offline" ? TITLE : M_TITLE})
+    )
+)
+
+(defwindow bar4
+        :monitor 0
+        :geometry (geometry 
+            :x "95.9%"
+            :y "0%"
+            :width "100%"
+            :height "2%"
+            :anchor "top left"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+        :class "taskbar"
+    (box
+            :halign "start"
+            :valign "start"
+            :hexpand false
+            :vexpand false
+            :spacing 0;
+            :orientation "h"
+            :height "26"
+            :width "80"
+            :class "time"
+        (button
+            :style "padding: 0px; min-width: 2px; min-height: 2px; background-color: rgba(0,0,0,0)"
+            :onclick "eww open-many sidepanel tab-selector tab-namespace --toggle"
+            (label :class "smol-text3" :text "${HOUR}:${MIN}")
+        )
+    )
+)
+
+(defwindow bar5
+        :monitor 0
+        :geometry (geometry 
+            :x "90.5%"
+            :y "0%"
+            :width "1%"
+            :height "2%"
+            :anchor "top left"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+        :class "taskbar"
+    (box
+        :halign "start"
+        :valign "start"
+        :hexpand false
+        :vexpand false
+        :spacing 0;
+        :orientation "h"
+        :height "25"
+        :class "indicators"
+        (box
+            :spacing 5
+            (label :class "smol-text1" :text "󰁹")
+            (button
+                    :style "margin-left: 1px; margin-top: 1px; padding: 1px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background: ${LAP_BATT >= 70 ? '#83C092' : '#E67E80'}; color: #2D353B"
+                    :onclick "/home/auri/.config/eww/scripts/open_battery"
+                (label :class "smol-text2" :style "color: #2D353B" :text LAP_BATT)
+            )
+            (label :class "smol-text1" :text "")
+            (button
+                    :style "margin-left: 1px; margin-top: 1px; padding: 1px; min-width: 2px; min-height: 2px; border-radius: 30px 30px 30px 30px; background: ${LAP_BATT >= 70 ? '#83C092' : '#E67E80'}; color: #2D353B"
+                    :onclick "/home/auri/.config/eww/scripts/open_volume"
+                (label :class "smol-text2" :style "color: #2D353B" :text VOLUME)
+            )
+        )
+    )
+)
+
+(defwindow bar6
+        :monitor 0
+        :geometry (geometry 
+            :x "9.5%"
+            :y "0%"
+            :width "1%"
+            :height "2%"
+            :anchor "top right"
+        )
+        :stacking "overlay"
+        :exclusive true
+        :focusable false
+        :namespace "bar"
+        :class "taskbar"
+    (box
+        :halign "start"
+        :valign "start"
+        :hexpand false
+        :vexpand false
+        :spacing 0;
+        :orientation "h"
+        :height "25"
+        :width "100"
+        :class "tray"
+        (box
+            :spacing 5
+            (systray :orientation "h"
+                :class "systembar-systray"
+                :spacing 5
+                :space-evenly "true"
+                :icon-size 19
+                :prepend-new "true"
+            )
+        )
+    )
+)
+
+(defwindow sidepanel
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "0%"
+            :width "20%"
+            :height "90.3%"
+            :anchor "bottom right"
+        )
+        :stacking "overlay"
+        :exclusive false
+        :focusable false
+        :namespace "sidepanel"
+        :class "taskbar"
+    (box :class "sidepanel" :orientation "v"
+        (stack :transition "crossfade" :same-size false :selected selected_tab
+            (notifications-widget)
+            (wifi-widget)
+            (bluetooth-widget)
+            (box :orientation "v"
+                (volume-widget)
+                (volume-app-widget)
+            )
+            (mpris-widget)
+            (power-widget)
+        )
+    )
+)
+
+(defwindow tab-selector
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "2.8%"
+            :width "20%"
+            :height "3%"
+            :anchor "top right"
+        )
+        :stacking "overlay"
+        :exclusive false
+        :focusable false
+        :namespace "sidepanel"
+        :class "taskbar"
+    (box :orientation "h" :class "tab-selector"
+        (button :onclick "eww update selected=0" "󰍡")
+        (button :onclick "eww update selected=1" "")
+        (button :onclick "eww update selected=2" "󰂯")
+        (button :onclick "eww update selected=3" "")
+        (button :onclick "eww update selected=4" "")
+        (button :onclick "eww update selected=5" "")
+    )
+)
+
+(defwindow tab-namespace
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "6.8%"
+            :width "20%"
+            :height "3%"
+            :anchor "top right"
+        )
+        :style "background: rgba(0,0,0,0)"
+        :stacking "overlay"
+        :exclusive false
+        :focusable false
+        :namespace "sidepanel"
+    (stack :transition "crossfade" :same-size false :selected selected_tab :class "sidepanel"
+        "Notifications"
+        (box
+            "Wi-Fi"
+            (button :onclick "nm-connection-editor &"
+                "Edit Connections..."
+            )
+        )
+        (box
+            "Bluetooth"
+            (button :onclick "blueman-manager &"
+                "Edit Connections..."
+            )
+        )
+        (box
+            "Volume"
+            (button :onclick "pavucontrol &"
+                "Edit Sinks..."
+            )
+        )
+        "Media"
+        "Power"
+    )
+)
+
+(defwindow stats
+        :monitor 0
+        :geometry (geometry 
+            :x "0%"
+            :y "6.8%"
+            :width "20%"
+            :height "40%"
+            :anchor "bottom right"
+        )
+        :stacking "overlay"
+        :exclusive false
+        :focusable false
+        :namespace "sidepanel"
+    (stats-widget)
+)
+
+(defwidget notifications-widget []
+    (box :orientation "v"
+        (scroll
+            (box
+                    :class "container"
+                    :halign "center"
+                    :valign "start"
+                    :hexpand false
+                    :vexpand false
+                    :spacing 5;
+                    :orientation "vertical"
+                (for entry in {NOTIFICATIONS.data[0]}
+                    (button :height "20" :style "border: 1px solid #fff; border-radius: 10px; padding: 1px 1px 1px 5px; min-width: 1px; min-height: 1px;" :onclick "dunstctl history-rm ${entry.id.data}"
+                        (label :xalign 0 :limit-width 100 :width 100 :markup {entry.message.data})))
+            )
+        )
+    )
+)
+
+(defwidget wifi-widget []
+    (box
+            :halign "center"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 5;
+            :orientation "v"
+        (for entry in wifi
+            (box
+                    :halign "start"
+                    :valign "start"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 0;
+                    :orientation "v"
+                (button
+                    :style "background: ${entry.CONNECTED ? 'rgba(5,50,5,0.1)' : 'inherit'}"
+                    :onclick "nmcli dev wifi ${entry.CONNECTED ? 'disconnect' : 'connect'} ${entry.SSID}"
+                    (box
+                        "${entry.SSID}: ${entry.SIGNAL}"
+                    )
+                )
+            )            
+        )
+    )
+)
+
+(defwidget volume-app-widget []
+    (box
+            :halign "center"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 5;
+            :orientation "v"
+        (for entry in PULSE_APPS
+            (box
+                    :halign "start"
+                    :valign "start"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 0;
+                    :orientation "v"
+                (label :text "${entry.app_name} - ${entry.media_name}" :limit-width 32)
+                (scale 
+                        :min 0
+                        :max 141
+                        :width "350"
+                        :value "${entry.volume}"
+                        :marks "1,25,50,75,100,140"
+                        :onchange "pactl set-sink-input-volume ${entry.index} {}%"
+                )
+            )            
+        )
+    )
+)
+
+(defwidget volume-widget []
+    (box
+            :halign "center"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 5;
+            :orientation "v"
+        (for entry in PULSE
+            (box
+                    :halign "start"
+                    :valign "start"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 0;
+                    :orientation "v"
+                (button
+                    :onclick "pactl set-default-sink ${entry.name}"
+                    (label :text "${entry.description}" :limit-width 32)
+                )
+                (scale 
+                        :min 0
+                        :max 141
+                        :width "350"
+                        :value "${entry.volume}"
+                        :marks "1,25,50,75,100,140"
+                        :onchange "/home/auri/.config/eww/scripts/volume ${entry.name} {}"
+                )
+            )            
+        )
+    )
+)
+
+(defwidget bluetooth-widget []
+    (box
+            :halign "center"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 5;
+            :orientation "v"
+        (for entry in bluetooth
+            (box
+                    :halign "start"
+                    :valign "start"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 0;
+                    :orientation "v"
+                (button
+                    :style "background: ${entry.CONNECTED ? 'rgba(5,50,5,0.1)' : 'inherit'}"
+                    :onclick "bluetoothctl ${entry.CONNECTED ? 'disconnect' : 'connect'} ${entry.MAC}"
+                    (box
+                        {entry.NAME}
+                    )
+                )
+            )            
+        )
+    )
+)
+
+(defwidget mpris-widget []
+    (box
+            :halign "center"
+            :valign "start"
+            :hexpand true
+            :vexpand true
+            :spacing 5;
+            :orientation "v"
+        (for entry in mpris
+            (box
+                    :halign "center"
+                    :valign "center"
+                    :hexpand true
+                    :vexpand true
+                    :spacing 0;
+                    :orientation "v"
+                (button
+                    ;;:style "background: ${entry.CONNECTED ? 'rgba(5,50,5,0.1)' : 'inherit'}"
+                    :onclick "playerctl play-pause --player=${entry.PLAYER}"
+                    (box :orientation "v"
+                        (label :text {entry.TITLE} :style "font-size: 24px;" :limit-width "32")
+                        (label :text {entry.ARTIST} :style "font-size: 16px;" :limit-width "32")
+                        (label :text "${entry.STATUS == 'Paused' ? ' ': ''}" :style "font-size: 16px;" :limit-width "32")
+                    )
+                )
+            )            
+        )
+    )
+)
+
+(defwidget power-widget []
+    (box
+        :class "power"
+        :height "100%"
+        :width "100%"
+        :halign "center"
+        :valign "start"
+        :hexpand false
+        :vexpand false
+        :spacing 5
+        :orientation "horizontal"
+    (button
+                :onclick "systemctl poweroff"
+                :style "background-color: transparent"
+                :hexpand true
+                :width "20"
+        (label 
+            :text ""
+            :xalign 0.5
+            :yalign 0.5
+            :style "font-size: 30px; color: #ed8796;")
+    )
+    (button
+                :onclick "hyprctl dispatch exit"
+                :style "background-color: transparent"
+        (label 
+            :text "󰗽"
+            :xalign 0.5
+            :yalign 0.5
+            :style "font-size: 30px; color: #8bd5ca")
+    )
+    (button
+                :onclick "hyprctl dispatch exec hyprlock"
+                :style "background-color: transparent"
+        (label 
+            :text ""
+            :xalign 0.5
+            :yalign 0.5
+            :style "font-size: 30px; color: #eed49f")
+    )
+    (button
+                :onclick "systemctl reboot"
+                :style "background-color: transparent"
+        (label 
+            :text ""
+            :xalign 0.5
+            :yalign 0.5
+            :style "font-size: 30px; color: #8aadf4")
+    )
+    )
+)
+
+(defwidget stats-widget []
+    (box :orientation "v"
+        (scroll
+            (box
+                    :class "container"
+                    :halign "start"
+                    :valign "start"
+                    :hexpand false
+                    :vexpand false
+                    :spacing 5;
+                    :orientation "vertical"
+                (box :orientation "h"
+                    (for core_table in {STATS.cpu_per_core.cores}
+                        (box :orientation "v"
+                            (for core in core_table
+                                (circular-progress :value core :thickness 2 :style "color: #A7C080"
+                                    (label :style "min-width: 17px; font-size: 12px;" :text "")
+                                )
+                            )
+                        )
+                    )
+                )
+                "Uptime:                          ${STATS.uptime}"
+                "CPU Freq:                    ${STATS.average_frequency}"
+                (box :orientation "h" :valign "end" :hexpand false
+                    "Memory usage:"
+                    (progress
+                        :value {STATS.memory.percent_used}
+                    )
+                )
+                (box :orientation "h" :valign "end" :hexpand false
+                    "Disk usage:      "
+                    (progress
+                        :value {STATS.disk.percent_used}
+                    )
+                )
+                (box :orientation "h" :valign "end" :hexpand false
+                    "GPU usage:     "
+                    (progress
+                        :value {STATS.gpu.gpu_utilization}
+                    )
+                )
+                (box :orientation "h" :valign "end" :hexpand false
+                    "Battery:"
+                    (progress
+                        :value {STATS.battery.capacity}
+                    )
+                )
+                "${STATS.battery.status}"
+            )
+        )
+    )
+)
+
+(defpoll STATS :interval "2s" `scripts/stats`)
+
+(defpoll PULSE_APPS :interval "500ms" `scripts/pulse_apps`)
+
+(defpoll wifi :interval "1s" `scripts/networks`)
+
+(defpoll bluetooth :interval "1s" `scripts/bluetooth`)
+
+(defpoll mpris :interval "1s" `scripts/mpris2_info`)
+
+(defpoll selected_tab :interval "100ms" `eww get selected`)
+
+(defvar selected 0)

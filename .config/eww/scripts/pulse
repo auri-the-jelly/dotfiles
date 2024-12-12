@@ -1,0 +1,39 @@
+#!/bin/python
+
+import json
+import os
+import subprocess
+
+names = subprocess.check_output(
+    "pactl list sinks | grep 'Name:' | awk '{print $2}'", shell=True, text=True
+).split("\n")
+
+aliases = (
+    subprocess.check_output(
+        "pactl list sinks | grep 'Description:' | sed 's/Description://'",
+        shell=True,
+        text=True,
+    )
+    .replace("\t ", "")
+    .split("\n")
+)
+
+volume = []
+for name in names:
+    if name:
+        god_help_me = subprocess.check_output(
+            f"pactl get-sink-volume {name} | sed 's/%//'", shell=True, text=True
+        ).split(" ")
+        for blessing in god_help_me:
+            if blessing.isnumeric() and len(blessing) <= 3:
+                volume.append(blessing)
+                break
+
+volume.append("")
+
+sinks = [
+    {"name": names[i], "description": aliases[i], "volume": volume[i]}
+    for i in range(0, len(names))
+][:-1]
+sinks_json = json.dumps(sinks)
+print(sinks_json)
